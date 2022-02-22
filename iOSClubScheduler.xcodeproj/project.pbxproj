@@ -1,0 +1,641 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CAE4D71D27BF024F005CEE00 /* iOSClubSchedulerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D71C27BF024F005CEE00 /* iOSClubSchedulerApp.swift */; };
+		CAE4D71F27BF024F005CEE00 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D71E27BF024F005CEE00 /* ContentView.swift */; };
+		CAE4D72127BF0250005CEE00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAE4D72027BF0250005CEE00 /* Assets.xcassets */; };
+		CAE4D72427BF0250005CEE00 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAE4D72327BF0250005CEE00 /* Preview Assets.xcassets */; };
+		CAE4D72E27BF0250005CEE00 /* iOSClubSchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D72D27BF0250005CEE00 /* iOSClubSchedulerTests.swift */; };
+		CAE4D73827BF0250005CEE00 /* iOSClubSchedulerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D73727BF0250005CEE00 /* iOSClubSchedulerUITests.swift */; };
+		CAE4D73A27BF0250005CEE00 /* iOSClubSchedulerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D73927BF0250005CEE00 /* iOSClubSchedulerUITestsLaunchTests.swift */; };
+		CAE4D74827BF073F005CEE00 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CAE4D74727BF073F005CEE00 /* FirebaseAnalytics */; };
+		CAE4D74A27BF073F005CEE00 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CAE4D74927BF073F005CEE00 /* FirebaseFirestore */; };
+		CAE4D74C27BF073F005CEE00 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = CAE4D74B27BF073F005CEE00 /* FirebaseFirestoreSwift-Beta */; };
+		CAE4D75027BF0837005CEE00 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAE4D74F27BF0837005CEE00 /* GoogleService-Info.plist */; };
+		CAE4D75227BF086C005CEE00 /* FBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D75127BF086C005CEE00 /* FBModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CAE4D72A27BF0250005CEE00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAE4D71127BF024F005CEE00 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CAE4D71827BF024F005CEE00;
+			remoteInfo = iOSClubScheduler;
+		};
+		CAE4D73427BF0250005CEE00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAE4D71127BF024F005CEE00 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CAE4D71827BF024F005CEE00;
+			remoteInfo = iOSClubScheduler;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CAE4D71927BF024F005CEE00 /* iOSClubScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSClubScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAE4D71C27BF024F005CEE00 /* iOSClubSchedulerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSClubSchedulerApp.swift; sourceTree = "<group>"; };
+		CAE4D71E27BF024F005CEE00 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CAE4D72027BF0250005CEE00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CAE4D72327BF0250005CEE00 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CAE4D72927BF0250005CEE00 /* iOSClubSchedulerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSClubSchedulerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAE4D72D27BF0250005CEE00 /* iOSClubSchedulerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSClubSchedulerTests.swift; sourceTree = "<group>"; };
+		CAE4D73327BF0250005CEE00 /* iOSClubSchedulerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSClubSchedulerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAE4D73727BF0250005CEE00 /* iOSClubSchedulerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSClubSchedulerUITests.swift; sourceTree = "<group>"; };
+		CAE4D73927BF0250005CEE00 /* iOSClubSchedulerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSClubSchedulerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CAE4D74F27BF0837005CEE00 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CAE4D75127BF086C005CEE00 /* FBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CAE4D71627BF024F005CEE00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAE4D74C27BF073F005CEE00 /* FirebaseFirestoreSwift-Beta in Frameworks */,
+				CAE4D74827BF073F005CEE00 /* FirebaseAnalytics in Frameworks */,
+				CAE4D74A27BF073F005CEE00 /* FirebaseFirestore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAE4D72627BF0250005CEE00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAE4D73027BF0250005CEE00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CAE4D71027BF024F005CEE00 = {
+			isa = PBXGroup;
+			children = (
+				CAE4D71B27BF024F005CEE00 /* iOSClubScheduler */,
+				CAE4D72C27BF0250005CEE00 /* iOSClubSchedulerTests */,
+				CAE4D73627BF0250005CEE00 /* iOSClubSchedulerUITests */,
+				CAE4D71A27BF024F005CEE00 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CAE4D71A27BF024F005CEE00 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CAE4D71927BF024F005CEE00 /* iOSClubScheduler.app */,
+				CAE4D72927BF0250005CEE00 /* iOSClubSchedulerTests.xctest */,
+				CAE4D73327BF0250005CEE00 /* iOSClubSchedulerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CAE4D71B27BF024F005CEE00 /* iOSClubScheduler */ = {
+			isa = PBXGroup;
+			children = (
+				CAE4D71C27BF024F005CEE00 /* iOSClubSchedulerApp.swift */,
+				CAE4D71E27BF024F005CEE00 /* ContentView.swift */,
+				CAE4D75127BF086C005CEE00 /* FBModel.swift */,
+				CAE4D74F27BF0837005CEE00 /* GoogleService-Info.plist */,
+				CAE4D72027BF0250005CEE00 /* Assets.xcassets */,
+				CAE4D72227BF0250005CEE00 /* Preview Content */,
+			);
+			path = iOSClubScheduler;
+			sourceTree = "<group>";
+		};
+		CAE4D72227BF0250005CEE00 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CAE4D72327BF0250005CEE00 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CAE4D72C27BF0250005CEE00 /* iOSClubSchedulerTests */ = {
+			isa = PBXGroup;
+			children = (
+				CAE4D72D27BF0250005CEE00 /* iOSClubSchedulerTests.swift */,
+			);
+			path = iOSClubSchedulerTests;
+			sourceTree = "<group>";
+		};
+		CAE4D73627BF0250005CEE00 /* iOSClubSchedulerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CAE4D73727BF0250005CEE00 /* iOSClubSchedulerUITests.swift */,
+				CAE4D73927BF0250005CEE00 /* iOSClubSchedulerUITestsLaunchTests.swift */,
+			);
+			path = iOSClubSchedulerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CAE4D71827BF024F005CEE00 /* iOSClubScheduler */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CAE4D73D27BF0250005CEE00 /* Build configuration list for PBXNativeTarget "iOSClubScheduler" */;
+			buildPhases = (
+				CAE4D71527BF024F005CEE00 /* Sources */,
+				CAE4D71627BF024F005CEE00 /* Frameworks */,
+				CAE4D71727BF024F005CEE00 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOSClubScheduler;
+			packageProductDependencies = (
+				CAE4D74727BF073F005CEE00 /* FirebaseAnalytics */,
+				CAE4D74927BF073F005CEE00 /* FirebaseFirestore */,
+				CAE4D74B27BF073F005CEE00 /* FirebaseFirestoreSwift-Beta */,
+			);
+			productName = iOSClubScheduler;
+			productReference = CAE4D71927BF024F005CEE00 /* iOSClubScheduler.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CAE4D72827BF0250005CEE00 /* iOSClubSchedulerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CAE4D74027BF0250005CEE00 /* Build configuration list for PBXNativeTarget "iOSClubSchedulerTests" */;
+			buildPhases = (
+				CAE4D72527BF0250005CEE00 /* Sources */,
+				CAE4D72627BF0250005CEE00 /* Frameworks */,
+				CAE4D72727BF0250005CEE00 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CAE4D72B27BF0250005CEE00 /* PBXTargetDependency */,
+			);
+			name = iOSClubSchedulerTests;
+			productName = iOSClubSchedulerTests;
+			productReference = CAE4D72927BF0250005CEE00 /* iOSClubSchedulerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CAE4D73227BF0250005CEE00 /* iOSClubSchedulerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CAE4D74327BF0250005CEE00 /* Build configuration list for PBXNativeTarget "iOSClubSchedulerUITests" */;
+			buildPhases = (
+				CAE4D72F27BF0250005CEE00 /* Sources */,
+				CAE4D73027BF0250005CEE00 /* Frameworks */,
+				CAE4D73127BF0250005CEE00 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CAE4D73527BF0250005CEE00 /* PBXTargetDependency */,
+			);
+			name = iOSClubSchedulerUITests;
+			productName = iOSClubSchedulerUITests;
+			productReference = CAE4D73327BF0250005CEE00 /* iOSClubSchedulerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CAE4D71127BF024F005CEE00 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					CAE4D71827BF024F005CEE00 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					CAE4D72827BF0250005CEE00 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = CAE4D71827BF024F005CEE00;
+					};
+					CAE4D73227BF0250005CEE00 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = CAE4D71827BF024F005CEE00;
+					};
+				};
+			};
+			buildConfigurationList = CAE4D71427BF024F005CEE00 /* Build configuration list for PBXProject "iOSClubScheduler" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CAE4D71027BF024F005CEE00;
+			packageReferences = (
+				CAE4D74627BF073F005CEE00 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = CAE4D71A27BF024F005CEE00 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CAE4D71827BF024F005CEE00 /* iOSClubScheduler */,
+				CAE4D72827BF0250005CEE00 /* iOSClubSchedulerTests */,
+				CAE4D73227BF0250005CEE00 /* iOSClubSchedulerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CAE4D71727BF024F005CEE00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAE4D72427BF0250005CEE00 /* Preview Assets.xcassets in Resources */,
+				CAE4D72127BF0250005CEE00 /* Assets.xcassets in Resources */,
+				CAE4D75027BF0837005CEE00 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAE4D72727BF0250005CEE00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAE4D73127BF0250005CEE00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CAE4D71527BF024F005CEE00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAE4D71F27BF024F005CEE00 /* ContentView.swift in Sources */,
+				CAE4D75227BF086C005CEE00 /* FBModel.swift in Sources */,
+				CAE4D71D27BF024F005CEE00 /* iOSClubSchedulerApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAE4D72527BF0250005CEE00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAE4D72E27BF0250005CEE00 /* iOSClubSchedulerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAE4D72F27BF0250005CEE00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAE4D73A27BF0250005CEE00 /* iOSClubSchedulerUITestsLaunchTests.swift in Sources */,
+				CAE4D73827BF0250005CEE00 /* iOSClubSchedulerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CAE4D72B27BF0250005CEE00 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CAE4D71827BF024F005CEE00 /* iOSClubScheduler */;
+			targetProxy = CAE4D72A27BF0250005CEE00 /* PBXContainerItemProxy */;
+		};
+		CAE4D73527BF0250005CEE00 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CAE4D71827BF024F005CEE00 /* iOSClubScheduler */;
+			targetProxy = CAE4D73427BF0250005CEE00 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CAE4D73B27BF0250005CEE00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CAE4D73C27BF0250005CEE00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CAE4D73E27BF0250005CEE00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"iOSClubScheduler/Preview Content\"";
+				DEVELOPMENT_TEAM = A3VL267Y3N;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amoghmantri.iOSClubScheduler;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CAE4D73F27BF0250005CEE00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"iOSClubScheduler/Preview Content\"";
+				DEVELOPMENT_TEAM = A3VL267Y3N;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amoghmantri.iOSClubScheduler;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CAE4D74127BF0250005CEE00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A3VL267Y3N;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amoghmantri.iOSClubSchedulerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSClubScheduler.app/iOSClubScheduler";
+			};
+			name = Debug;
+		};
+		CAE4D74227BF0250005CEE00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A3VL267Y3N;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amoghmantri.iOSClubSchedulerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSClubScheduler.app/iOSClubScheduler";
+			};
+			name = Release;
+		};
+		CAE4D74427BF0250005CEE00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A3VL267Y3N;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amoghmantri.iOSClubSchedulerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iOSClubScheduler;
+			};
+			name = Debug;
+		};
+		CAE4D74527BF0250005CEE00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A3VL267Y3N;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amoghmantri.iOSClubSchedulerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iOSClubScheduler;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CAE4D71427BF024F005CEE00 /* Build configuration list for PBXProject "iOSClubScheduler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAE4D73B27BF0250005CEE00 /* Debug */,
+				CAE4D73C27BF0250005CEE00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CAE4D73D27BF0250005CEE00 /* Build configuration list for PBXNativeTarget "iOSClubScheduler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAE4D73E27BF0250005CEE00 /* Debug */,
+				CAE4D73F27BF0250005CEE00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CAE4D74027BF0250005CEE00 /* Build configuration list for PBXNativeTarget "iOSClubSchedulerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAE4D74127BF0250005CEE00 /* Debug */,
+				CAE4D74227BF0250005CEE00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CAE4D74327BF0250005CEE00 /* Build configuration list for PBXNativeTarget "iOSClubSchedulerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAE4D74427BF0250005CEE00 /* Debug */,
+				CAE4D74527BF0250005CEE00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CAE4D74627BF073F005CEE00 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CAE4D74727BF073F005CEE00 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAE4D74627BF073F005CEE00 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		CAE4D74927BF073F005CEE00 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAE4D74627BF073F005CEE00 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		CAE4D74B27BF073F005CEE00 /* FirebaseFirestoreSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAE4D74627BF073F005CEE00 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreSwift-Beta";
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = CAE4D71127BF024F005CEE00 /* Project object */;
+}
