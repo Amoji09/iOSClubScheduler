@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CAA9195427C82C64005143FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAA9195327C82C64005143FC /* GoogleService-Info.plist */; };
 		CAE4D71D27BF024F005CEE00 /* iOSClubSchedulerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D71C27BF024F005CEE00 /* iOSClubSchedulerApp.swift */; };
 		CAE4D71F27BF024F005CEE00 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D71E27BF024F005CEE00 /* ContentView.swift */; };
 		CAE4D72127BF0250005CEE00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAE4D72027BF0250005CEE00 /* Assets.xcassets */; };
@@ -17,7 +18,6 @@
 		CAE4D74827BF073F005CEE00 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CAE4D74727BF073F005CEE00 /* FirebaseAnalytics */; };
 		CAE4D74A27BF073F005CEE00 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CAE4D74927BF073F005CEE00 /* FirebaseFirestore */; };
 		CAE4D74C27BF073F005CEE00 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = CAE4D74B27BF073F005CEE00 /* FirebaseFirestoreSwift-Beta */; };
-		CAE4D75027BF0837005CEE00 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAE4D74F27BF0837005CEE00 /* GoogleService-Info.plist */; };
 		CAE4D75227BF086C005CEE00 /* FBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D75127BF086C005CEE00 /* FBModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CAA9195327C82C64005143FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CAE4D71927BF024F005CEE00 /* iOSClubScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSClubScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE4D71C27BF024F005CEE00 /* iOSClubSchedulerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSClubSchedulerApp.swift; sourceTree = "<group>"; };
 		CAE4D71E27BF024F005CEE00 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,7 +50,6 @@
 		CAE4D73327BF0250005CEE00 /* iOSClubSchedulerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSClubSchedulerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE4D73727BF0250005CEE00 /* iOSClubSchedulerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSClubSchedulerUITests.swift; sourceTree = "<group>"; };
 		CAE4D73927BF0250005CEE00 /* iOSClubSchedulerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSClubSchedulerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		CAE4D74F27BF0837005CEE00 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CAE4D75127BF086C005CEE00 /* FBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,10 +104,10 @@
 		CAE4D71B27BF024F005CEE00 /* iOSClubScheduler */ = {
 			isa = PBXGroup;
 			children = (
+				CAA9195327C82C64005143FC /* GoogleService-Info.plist */,
 				CAE4D71C27BF024F005CEE00 /* iOSClubSchedulerApp.swift */,
 				CAE4D71E27BF024F005CEE00 /* ContentView.swift */,
 				CAE4D75127BF086C005CEE00 /* FBModel.swift */,
-				CAE4D74F27BF0837005CEE00 /* GoogleService-Info.plist */,
 				CAE4D72027BF0250005CEE00 /* Assets.xcassets */,
 				CAE4D72227BF0250005CEE00 /* Preview Content */,
 			);
@@ -253,7 +253,7 @@
 			files = (
 				CAE4D72427BF0250005CEE00 /* Preview Assets.xcassets in Resources */,
 				CAE4D72127BF0250005CEE00 /* Assets.xcassets in Resources */,
-				CAE4D75027BF0837005CEE00 /* GoogleService-Info.plist in Resources */,
+				CAA9195427C82C64005143FC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
