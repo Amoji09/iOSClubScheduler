@@ -15,9 +15,6 @@
 		CAE4D72E27BF0250005CEE00 /* iOSClubSchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D72D27BF0250005CEE00 /* iOSClubSchedulerTests.swift */; };
 		CAE4D73827BF0250005CEE00 /* iOSClubSchedulerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D73727BF0250005CEE00 /* iOSClubSchedulerUITests.swift */; };
 		CAE4D73A27BF0250005CEE00 /* iOSClubSchedulerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D73927BF0250005CEE00 /* iOSClubSchedulerUITestsLaunchTests.swift */; };
-		CAE4D74827BF073F005CEE00 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CAE4D74727BF073F005CEE00 /* FirebaseAnalytics */; };
-		CAE4D74A27BF073F005CEE00 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CAE4D74927BF073F005CEE00 /* FirebaseFirestore */; };
-		CAE4D74C27BF073F005CEE00 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = CAE4D74B27BF073F005CEE00 /* FirebaseFirestoreSwift-Beta */; };
 		CAE4D75227BF086C005CEE00 /* FBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D75127BF086C005CEE00 /* FBModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,9 +55,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAE4D74C27BF073F005CEE00 /* FirebaseFirestoreSwift-Beta in Frameworks */,
-				CAE4D74827BF073F005CEE00 /* FirebaseAnalytics in Frameworks */,
-				CAE4D74A27BF073F005CEE00 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,9 +150,6 @@
 			);
 			name = iOSClubScheduler;
 			packageProductDependencies = (
-				CAE4D74727BF073F005CEE00 /* FirebaseAnalytics */,
-				CAE4D74927BF073F005CEE00 /* FirebaseFirestore */,
-				CAE4D74B27BF073F005CEE00 /* FirebaseFirestoreSwift-Beta */,
 			);
 			productName = iOSClubScheduler;
 			productReference = CAE4D71927BF024F005CEE00 /* iOSClubScheduler.app */;
@@ -233,7 +224,6 @@
 			);
 			mainGroup = CAE4D71027BF024F005CEE00;
 			packageReferences = (
-				CAE4D74627BF073F005CEE00 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = CAE4D71A27BF024F005CEE00 /* Products */;
 			projectDirPath = "";
@@ -607,35 +597,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		CAE4D74627BF073F005CEE00 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		CAE4D74727BF073F005CEE00 /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CAE4D74627BF073F005CEE00 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		CAE4D74927BF073F005CEE00 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CAE4D74627BF073F005CEE00 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		CAE4D74B27BF073F005CEE00 /* FirebaseFirestoreSwift-Beta */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CAE4D74627BF073F005CEE00 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = "FirebaseFirestoreSwift-Beta";
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CAE4D71127BF024F005CEE00 /* Project object */;
 }
