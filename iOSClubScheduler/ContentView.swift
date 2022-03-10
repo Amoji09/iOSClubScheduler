@@ -68,16 +68,6 @@ struct CourseDetailView: View {
         List(course.sections ?? []) { section in
           VStack{
             Text(section.crn)
-            VStack{
-              if let meetings = section.meetings{
-              ForEach(meetings){ meeting in
-                HStack{
-                Text(meeting.time)
-                Text(meeting.days)
-                }
-              }
-              }
-            }
           }
         }
       }

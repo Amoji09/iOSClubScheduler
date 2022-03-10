@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Firebase
 
 //"sections": [
 //{
@@ -30,14 +29,14 @@ import Firebase
 //]
 
 
-struct Meeting: Decodable, Hashable, Identifiable {
-    
-    var id = UUID()
-    
-    let time : String?
-    let days: String?
-    let location: String
-}
+//struct Meeting: Decodable, Hashable, Identifiable {
+//
+//    var id = UUID()
+//
+//    let time : String?
+//    let days: String?
+//    let location: String
+//}
 
 
 struct Section: Decodable, Hashable, Identifiable {
@@ -48,7 +47,7 @@ struct Section: Decodable, Hashable, Identifiable {
     
     let section_id: String
     let crn: String
-    var meetings : [Meeting]?
+//    var meetings : [Meeting]?
 }
 
 
@@ -67,29 +66,8 @@ struct Course: Decodable, Hashable, Identifiable {
 
 class FBModel: ObservableObject {
     @Published var courses: [Course] = []
-    let db : Firestore
     
     static let shared = FBModel()
-    
-    init(){
-        FirebaseApp.configure()
-        self.db = Firestore.firestore()
-    }
-    
-    func addData(){
-        var ref: DocumentReference? = nil
-        ref = db.collection("users").addDocument(data: [
-            "first": "Ada",
-            "last": "Lovelace",
-            "born": 1815
-        ]) { err in
-            if let err = err {
-                print("Error adding document: \(err)")
-            } else {
-                print("Document added with ID: \(ref!.documentID)")
-            }
-        }
-    }
     
     func loadCourses() {
         let url = URL(string: "https://oscartracker.herokuapp.com/testCourses/100/")!
