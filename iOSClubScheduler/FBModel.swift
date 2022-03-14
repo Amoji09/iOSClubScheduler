@@ -12,15 +12,15 @@ import Foundation
 //"section_id": "A",
 //"crn": "81031",
 //"meetings": [
-//{
-//"time": "12:30 pm - 1:20 pm",
-//"days": "MWF",
-//"location": "Engr Science & Mech 202",
-//"type": "Lecture*",
-//"instructor": [
-//"Yi-Hsien   Ho"
-//]
-//}
+//  {
+  //"time": "12:30 pm - 1:20 pm",
+  //"days": "MWF",
+  //"location": "Engr Science & Mech 202",
+  //"type": "Lecture*",
+  //"instructor": [
+  //"Yi-Hsien   Ho"
+  //]
+  //}
 //],
 //"instructors": [
 //"Yi-Hsien   Ho"
@@ -29,14 +29,11 @@ import Foundation
 //]
 
 
-//struct Meeting: Decodable, Hashable, Identifiable {
-//
-//    var id = UUID()
-//
-//    let time : String?
-//    let days: String?
-//    let location: String
-//}
+struct Meeting: Decodable, Hashable{
+  var days : String?
+  var location : String?
+  var instructors : [String]?
+}
 
 
 struct Section: Decodable, Hashable, Identifiable {
@@ -47,7 +44,7 @@ struct Section: Decodable, Hashable, Identifiable {
     
     let section_id: String
     let crn: String
-//    var meetings : [Meeting]?
+    var meetings : [Meeting]?
 }
 
 
