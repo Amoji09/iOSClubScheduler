@@ -28,6 +28,11 @@ import Foundation
 //}
 //]
 
+//TODO: Set up prerequisites struct that is decodable,hashable
+//needs to support types of prerequisites
+//after that support nested prerequisites
+//hold array of course codes
+
 
 struct Meeting: Decodable, Hashable{
   var days : String?
@@ -57,13 +62,21 @@ struct Course: Decodable, Hashable, Identifiable {
     let semester: String
     let fullname: String
     let school: String
+    let course_attributes: String?
     let number: String
     var sections: [Section]?
+    //TODO: Add prerequisites, might need to make optional since it's always not present
 }
 
 class FBModel: ObservableObject {
     @Published var courses: [Course] = []
-    
+    var humanitiesCourses : [Course] {
+      courses.filter{$0.course_attributes != nil && $0.course_attributes == "Humanities Requirement"}
+    }
+  var socialCourses : [Course] {
+    courses.filter{$0.course_attributes != nil && $0.course_attributes == "Social Science Requirement"}
+  }
+  //@published var userPrereqs
     static let shared = FBModel()
     
     func loadCourses() {

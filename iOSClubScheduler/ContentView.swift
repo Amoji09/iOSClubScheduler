@@ -7,33 +7,22 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
-  var columns: [GridItem] = [GridItem(.flexible(minimum: 0, maximum: .infinity)), GridItem(.flexible(minimum: 0, maximum: .infinity))]
-  
-  var body: some View {
-    NavigationView {
-      ScrollView {
-        LazyVGrid(columns: columns) {
-          ForEach(FBModel.shared.courses) { course in
-            //                Color.red
-            if course.sections != nil{
-              NavigationLink(destination: CourseDetailView(course: course) ){
-                VStack {
-                  Text(course.school + " " + course.number)
-                    .foregroundColor(Color(uiColor: UIColor.systemBackground))
-                }
-                .padding()
-                .background([Color.yellow, Color.green, Color.blue, Color.red].randomElement()!)
-                .cornerRadius(16)
-              }
-            }
-            //                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 120)
-          }
+  var body: some View{
+    TabView{
+      CourseView()
+        .tabItem{
+          Label("Courses",systemImage: "list.dash")
         }
-      }
-      .navigationBarTitle(Text("Georgia Tech courses"))
+      PrequisiteMenuView()
+        .tabItem{
+          Label("Prereqs", systemImage: "textformat")
+        }
     }
   }
+  
 }
 
 
@@ -58,6 +47,94 @@ struct ContentView: View {
 //}
 //]
 
+struct PrequisiteMenuView : View{
+  @State var input = ""
+  var body: some View{
+    VStack{
+    Text("Input Taken Classes")
+      TextField("Course code",text : $input)
+        .padding()
+        .background(Color.gray)
+        .cornerRadius(10)
+      
+      //TODO: Add a button that calls addPrereq with input
+    }
+    .padding()
+  }
+  
+  func addPrereq(code : String){
+    //TODO: Add code to some kind of [String]
+    //the array should be in the model(FBModel)
+  }
+}
+
+
+struct CourseView : View{
+  
+  //TODO: Make a gridview matching the tutorial where each row is a different filter(using the filtered course arrays from FBModel)
+  
+  
+  var columns: [GridItem] = [GridItem(.flexible(minimum: 0, maximum: .infinity)), GridItem(.flexible(minimum: 0, maximum: .infinity))]
+  @StateObject var model = FBModel.shared
+  @State var filterHum = false
+  @State var filterSoc = false
+  
+  //TODO: boolean for if filter by meeting prerequisites is true
+  var body: some View {
+    
+    NavigationView {
+      VStack{
+        Toggle(isOn: $filterHum) {
+          Text("Show Humanities")
+        }
+        Toggle(isOn: $filterSoc) {
+          Text("Show Social Sciences")
+        }
+        ScrollView {
+          LazyVGrid(columns: columns) {
+            ForEach(displaySelectedCourses()) { course in
+              //                Color.red
+              if course.sections != nil{
+                NavigationLink(destination: CourseDetailView(course: course) ){
+                  VStack {
+                    Text(course.school + " " + course.number)
+                      .foregroundColor(Color(uiColor: UIColor.systemBackground))
+                  }
+                  .padding()
+                  .background([Color.yellow, Color.green, Color.blue, Color.red].randomElement()!)
+                  .cornerRadius(16)
+                }
+              }
+              //                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 120)
+            }
+          }
+        }
+      }
+    }
+    .navigationBarTitle(Text("Georgia Tech courses"))
+  }
+  
+  
+  func displaySelectedCourses() -> [Course]{
+    
+    //TODO: Modify for accounting for prerequisites
+    var coursesOut : [Course] = []
+    if(filterHum && filterSoc){
+      coursesOut += model.humanitiesCourses
+      coursesOut += model.socialCourses
+    }
+    else if(filterSoc){
+      coursesOut += model.socialCourses
+    }
+    else if(filterHum){
+      coursesOut += model.humanitiesCourses
+    }
+    else{
+      coursesOut = model.courses
+    }
+    return coursesOut
+  }
+}
 
 struct CourseDetailView: View {
   let course: Course
@@ -65,6 +142,9 @@ struct CourseDetailView: View {
   var body: some View {
     VStack{
       Text(course.fullname)
+      if let attribute = course.course_attributes{
+        Text(attribute)
+      }
       List(course.sections ?? []) { section in
         SectionView(section: section)
       }
@@ -92,18 +172,18 @@ struct MeetingView : View{
   var body : some View {
     VStack{
       List(meeting.instructors ?? [], id: \.self){ instructor in
-          Text(instructor)
-        }.navigationTitle("Instructors")
+        Text(instructor)
+      }
       HStack{
-      if let days = meeting.days{
-        Text(days)
-      }
+        if let days = meeting.days{
+          Text(days)
+        }
         Spacer()
-      if let location = meeting.location{
-        Text(location)
+        if let location = meeting.location{
+          Text(location)
+        }
       }
-      }
-      }
+    }
   }
 }
 
