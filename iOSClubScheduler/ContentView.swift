@@ -48,6 +48,7 @@ struct ContentView: View {
 //]
 
 struct PrequisiteMenuView : View{
+  @StateObject var model = FBModel.shared
   @State var input = ""
   var body: some View{
     VStack{
@@ -57,14 +58,22 @@ struct PrequisiteMenuView : View{
         .background(Color.gray)
         .cornerRadius(10)
       
-      //TODO: Add a button that calls addPrereq with input
+      Button("Add Taken Course") {
+        addPrereq()
+      }
+      
+      List {
+        ForEach(model.prerequisiteCodes, id : \.self){ code in
+          Text(code)
+        }
+      }
     }
     .padding()
+    
   }
   
-  func addPrereq(code : String){
-    //TODO: Add code to some kind of [String]
-    //the array should be in the model(FBModel)
+  func addPrereq(){
+    model.prerequisiteCodes.append(input)
   }
 }
 
