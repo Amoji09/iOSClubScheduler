@@ -33,16 +33,23 @@ import Foundation
 //after that support nested prerequisites
 //hold array of course codes
 
+//TODO: Custom tree
+
 struct Prerequisites: Decodable, Hashable {
   let type : String
-  //let courses : [String]
+  //let courses :
 }
 
 
 struct Meeting: Decodable, Hashable{
   var days : String?
+  var time : String?
   var location : String?
   var instructors : [String]?
+  
+  func checkOverlap(time : String) -> Bool{
+    return false
+  }
 }
 
 
