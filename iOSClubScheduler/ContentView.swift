@@ -16,9 +16,13 @@ struct ContentView: View {
         .tabItem{
           Label("Courses",systemImage: "list.dash")
         }
-      PrequisiteMenuView()
+      PrerequisiteMenuView()
         .tabItem{
           Label("Prereqs", systemImage: "textformat")
+        }
+      CRNView()
+        .tabItem{
+          Label("Times", systemImage: "clock")
         }
     }
   }
@@ -47,20 +51,21 @@ struct ContentView: View {
 //}
 //]
 
-struct PrequisiteMenuView : View{
+struct PrerequisiteMenuView : View{
   @StateObject var model = FBModel.shared
   @State var input = ""
   var body: some View{
     VStack{
     Text("Input Taken Classes")
-      TextField("Course code",text : $input)
-        .padding()
-        .background(Color.gray)
-        .cornerRadius(10)
+      
+      TextField("Course code",text : $input).overlay(
+        RoundedRectangle(cornerRadius: 10)
+          .stroke(Color.black, lineWidth: 1).frame(width: 300, height: 30, alignment: .center)
+      ).padding()
       
       Button("Add Taken Course") {
         addPrereq()
-      }
+      }.padding().foregroundColor(Color.yellow).background(Color.blue).cornerRadius(10)
       
       List {
         ForEach(model.prerequisiteCodes, id : \.self){ code in
@@ -74,6 +79,17 @@ struct PrequisiteMenuView : View{
   
   func addPrereq(){
     model.prerequisiteCodes.append(input)
+  }
+  
+  func validateCode() -> Bool{
+    var parts = input.components(separatedBy: " ")
+    var school = String(parts[0])
+    var code = String(parts[1])
+    
+    if(school.count != 2 || school.count != 3 || school.count != 4) {
+      return false
+    }
+    return true
   }
 }
 
@@ -188,17 +204,53 @@ struct MeetingView : View{
           Text(days)
         }
         Spacer()
-        if let location = meeting.location{
-          Text(location)
+        if let time = meeting.time{
+          Text(time)
         }
+        
+        
+      }
+      if let location = meeting.location{
+        Text(location)
       }
     }
   }
 }
 
 
+struct CRNView : View{
+  @StateObject var model = FBModel.shared
+  @State var input = ""
+  var body: some View{
+    VStack{
+    Text("Input Taken Classes")
+      
+      TextField("Course CRN",text : $input).overlay(
+        RoundedRectangle(cornerRadius: 10)
+          .stroke(Color.black, lineWidth: 1).frame(width: 300, height: 30, alignment: .center)
+      ).padding()
+      
+      Button("Add Taken Course") {
+        addTime()
+      }.padding().foregroundColor(Color.yellow).background(Color.blue).cornerRadius(10)
+      
+      List {
+        ForEach(model.timeCRNS, id : \.self){ crn in
+          Text(crn.code).foregroundColor(crn.infoFound ? Color.green : Color.red)
+        }
+      }
+    }
+    .padding()
+    
+  }
+  
+  func addTime(){
+    model.searchTime(crn: input)
+  }
+}
+
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ContentView()
+   ContentView()
   }
 }

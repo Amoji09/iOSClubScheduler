@@ -33,16 +33,37 @@ import Foundation
 //after that support nested prerequisites
 //hold array of course codes
 
+//TODO: Custom tree
+
+struct MeetingTime {
+  let days : String
+  let time : String
+    
+}
+
+struct CRN : Identifiable, Hashable{
+  var id : String {
+    return code
+  }
+  let code : String
+  let infoFound : Bool
+}
+
 struct Prerequisites: Decodable, Hashable {
   let type : String
-  //let courses : [String]
+  //let courses :
 }
 
 
 struct Meeting: Decodable, Hashable{
   var days : String?
+  var time : String?
   var location : String?
   var instructors : [String]?
+  
+  func checkOverlap(time : String) -> Bool{
+    return false
+  }
 }
 
 
@@ -96,7 +117,8 @@ class FBModel: ObservableObject {
   }
   
   @Published var prerequisiteCodes : [String] = []
-  
+  @Published var timeCRNS : [CRN] = []
+  @Published var times : [MeetingTime] = []
   //@published var userPrereqs
     static let shared = FBModel()
     
@@ -107,4 +129,72 @@ class FBModel: ObservableObject {
         self.courses = courses
     }
     
+    
+    /*
+    "meetings": [
+     {
+         "time": "2:00 pm - 3:15 pm",
+         "days": "TR",
+         "location": "Instr Center 111",
+         "type": "Lecture*",
+         "instructor": ["Ling   Liu"]
+     }
+    ]
+     
+   
+     func (MeetingTime a, MeetingTime b)
+    if a and b days do not match, then no issue
+     if they match
+      parse the time(12:30 pm - 1:20 pm), parse (b time)
+     check if they overlap, and if they do return false
+
+     */
+    
+    func checkOverLap(_ x: MeetingTime, y: MeetingTime) -> Bool {
+        if (x == nil || y == nil) {
+            return false
+        }
+        let xDays = Array(x.days)
+        let yDays = Array(y.days)
+        for xDay in xDays {
+            for yDay in yDays { // "12:30 pm - 1:45 pm"
+                // Obtain the hour and minutes of x, obtain just the prefix of the hour if its just one char
+                var xTimeHour = x.time.prefix(2)
+                if (xTimeHour.suffix(1) == ":") {
+                    xTimeHour = xTimeHour.prefix(1)
+                }
+                
+                // Obtain the hour and minutes of y, same with x, make sure that colon is not assigned
+                var xTimeMin = Array(y.time)[3] + Array(x.time)[4]
+                var yTimeHour = y.time.suffix(2)
+            }
+        }
+        return false;
+    }
+    
+    
+    func searchTime(crn : String) {
+        for course in courses {
+          if let sections = course.sections {
+            for section in sections{
+              if(section.crn == crn){
+                if let meetings = section.meetings{
+                  for meeting in meetings{
+                    if let days = meeting.days, let time = meeting.time{
+                      print(days)
+                      print(time)
+                      times.append(MeetingTime(days: days, time: time))
+                      timeCRNS.append(CRN(code: crn, infoFound: true))
+                      return
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        print("failed")
+        timeCRNS.append(CRN(code: crn, infoFound: false))
+        return
+    }
 }
