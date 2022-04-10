@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA5A5C9D2803886C00CA9207 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A5C9C2803886C00CA9207 /* CourseView.swift */; };
+		CA5A5C9F280388AF00CA9207 /* PrerequisiteMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A5C9E280388AF00CA9207 /* PrerequisiteMenuView.swift */; };
 		CAA9195427C82C64005143FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAA9195327C82C64005143FC /* GoogleService-Info.plist */; };
 		CAE4D71D27BF024F005CEE00 /* iOSClubSchedulerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D71C27BF024F005CEE00 /* iOSClubSchedulerApp.swift */; };
 		CAE4D71F27BF024F005CEE00 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D71E27BF024F005CEE00 /* ContentView.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA5A5C9C2803886C00CA9207 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
+		CA5A5C9E280388AF00CA9207 /* PrerequisiteMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrerequisiteMenuView.swift; sourceTree = "<group>"; };
 		CAA9195327C82C64005143FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CAE4D71927BF024F005CEE00 /* iOSClubScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSClubScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE4D71C27BF024F005CEE00 /* iOSClubSchedulerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSClubSchedulerApp.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 				CAA9195327C82C64005143FC /* GoogleService-Info.plist */,
 				CAE4D71C27BF024F005CEE00 /* iOSClubSchedulerApp.swift */,
 				CAE4D71E27BF024F005CEE00 /* ContentView.swift */,
+				CA5A5C9E280388AF00CA9207 /* PrerequisiteMenuView.swift */,
+				CA5A5C9C2803886C00CA9207 /* CourseView.swift */,
 				CAE4D75127BF086C005CEE00 /* FBModel.swift */,
 				CAE4D72027BF0250005CEE00 /* Assets.xcassets */,
 				CAE4D72227BF0250005CEE00 /* Preview Content */,
@@ -268,9 +274,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA5A5C9F280388AF00CA9207 /* PrerequisiteMenuView.swift in Sources */,
 				CAE4D71F27BF024F005CEE00 /* ContentView.swift in Sources */,
 				CAE4D75227BF086C005CEE00 /* FBModel.swift in Sources */,
 				CAE4D71D27BF024F005CEE00 /* iOSClubSchedulerApp.swift in Sources */,
+				CA5A5C9D2803886C00CA9207 /* CourseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
