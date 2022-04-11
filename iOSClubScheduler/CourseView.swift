@@ -12,7 +12,7 @@ struct CourseView : View{
   //TODO: Make a gridview matching the tutorial where each row is a different filter(using the filtered course arrays from FBModel)
   
   
-  var columns: [GridItem] = [GridItem(.flexible(minimum: 0, maximum: .infinity)), GridItem(.flexible(minimum: 0, maximum: .infinity))]
+  //var columns: [GridItem] = [GridItem(.flexible(minimum: 0, maximum: .infinity)), GridItem(.flexible(minimum: 0, maximum: .infinity))]
   @StateObject var model = FBModel.shared
   @State var filterHum = false
   @State var filterSoc = false
@@ -22,17 +22,27 @@ struct CourseView : View{
     
     NavigationView {
       VStack{
+          HStack {
+              Text("All Courses")
+              Spacer()
+              NavigationLink(destination: FilterMenuView()) {
+                  Image(systemName: "magnifyingglass")
+              }
+          }
         List(Array(model.groupedCourses.keys), id : \.self ) { key in
           Section(header: Text(key)) {
-            ForEach(model.groupedCourses[key] ?? [], id: \.self) { course in
-              if(course.sect)
-              NavigationLink(destination: CourseDetailView(course: course)){
-                HStack{
-                  Text(course.fullname)
-                }
+              ForEach(model.groupedCourses[key] ?? [], id: \.self) { course in
+                  if (course.sections != nil) {
+                      NavigationLink(destination: CourseDetailView(course: course)){
+                          HStack{
+                              Text(course.fullname)
+                          }
+                      }
+                  }
               }
-            }
           }
+            
+            
         }
       }.listStyle(.grouped)
     }

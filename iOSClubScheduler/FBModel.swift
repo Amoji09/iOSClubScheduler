@@ -145,9 +145,9 @@ class FBModel: ObservableObject {
         let url = URL(string: "https://oscartracker.herokuapp.com/testCourses/100/")!
         let data = try! Data(contentsOf: url)
         let courses = try! JSONDecoder().decode([Course].self, from: data)
-        self.courses = courses
-      self.groupedCourses = Dictionary(grouping:self.courses){$0.school}
-      print(groupedCourses)
+        self.courses = courses.filter{$0.sections != nil}
+        self.groupedCourses = Dictionary(grouping:self.courses){$0.school}
+        print(groupedCourses)
     }
     
 //  func searchTime(crn : String){
