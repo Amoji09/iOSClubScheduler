@@ -130,7 +130,7 @@ class FBModel: ObservableObject {
     static let shared = FBModel()
     
     func loadCourses() {
-        let url = URL(string: "https://oscartracker.herokuapp.com/testCourses/5/")!
+        let url = URL(string: "https://oscartracker.herokuapp.com/testCourses/50/")!
         let data = try! Data(contentsOf: url)
         let courses = try! JSONDecoder().decode([Course].self, from: data)
         self.courses = courses
@@ -181,8 +181,10 @@ class FBModel: ObservableObject {
                                         }
                                     }
                                     
-                                    
-                                    
+                                    if(noMatches) {
+                                        return true
+                                    }
+                        
                                     if(!noMatches){
                                         dateFormatter.dateFormat = "hh:mm a"
                                         var userTime = timeUser!.split(separator: "-").map( {
@@ -221,8 +223,9 @@ class FBModel: ObservableObject {
                                         let range1 = startTime1...endTime1
                                         let range2 = startTime2...endTime2
                                         
-                                        return !range1.overlaps(range2)
-                                        
+                                        if(!range1.overlaps(range2)){
+                                            return true
+                                        }
                                     }
                                     else {
                                         return true
@@ -236,7 +239,7 @@ class FBModel: ObservableObject {
             }
            
         }
-        return true
+        return false
     }
     
     
