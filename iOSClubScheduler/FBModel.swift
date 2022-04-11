@@ -13,14 +13,14 @@ import Foundation
 //"crn": "81031",
 //"meetings": [
 //  {
-  //"time": "12:30 pm - 1:20 pm",
-  //"days": "MWF",
-  //"location": "Engr Science & Mech 202",
-  //"type": "Lecture*",
-  //"instructor": [
-  //"Yi-Hsien   Ho"
-  //]
-  //}
+//"time": "12:30 pm - 1:20 pm",
+//"days": "MWF",
+//"location": "Engr Science & Mech 202",
+//"type": "Lecture*",
+//"instructor": [
+//"Yi-Hsien   Ho"
+//]
+//}
 //],
 //"instructors": [
 //"Yi-Hsien   Ho"
@@ -36,34 +36,36 @@ import Foundation
 //TODO: Custom tree
 
 struct MeetingTime {
-  let days : String
-  let time : String
+    let days : String
+    let time : String
     
 }
 
-struct CRN : Identifiable, Hashable{
-  var id : String {
-    return code
-  }
-  let code : String
-  let infoFound : Bool
+struct UserCourse : Identifiable, Hashable{
+    var id : String {
+        return crn
+    }
+    let crn : String
+    let course : String
+    let section : Section
+    let infoFound : Bool
 }
 
 struct Prerequisites: Decodable, Hashable {
-  let type : String
-  //let courses :
+    let type : String
+    //let courses :
 }
 
 
 struct Meeting: Decodable, Hashable{
-  var days : String?
-  var time : String?
-  var location : String?
-  var instructors : [String]?
-  
-  func checkOverlap(time : String) -> Bool{
-    return false
-  }
+    var days : String?
+    var time : String?
+    var location : String?
+    var instructors : [String]?
+    
+    func checkOverlap(time : String) -> Bool{
+        return false
+    }
 }
 
 
@@ -92,38 +94,43 @@ struct Course: Decodable, Hashable, Identifiable {
     let number: String
     var sections: [Section]?
     //TODO: Add prerequisites, might need to make optional since it's always not present
-  
-  
-//  func meetsPrereq(taken : [String]) -> Bool {
-//    if(prerequisites.courses is [String]) {
-//      if(prerequisites.type == "and"){
-//        for i in 0..<prerequisites.courses
-//      }
-//      else if(Prerequisites.type == "or") {
-//
-//      }
-//
-//    }
-//  }
+    
+    
+    //  func meetsPrereq(taken : [String]) -> Bool {
+    //    if(prerequisites.courses is [String]) {
+    //      if(prerequisites.type == "and"){
+    //        for i in 0..<prerequisites.courses
+    //      }
+    //      else if(Prerequisites.type == "or") {
+    //
+    //      }
+    //
+    //    }
+    //  }
 }
 
 class FBModel: ObservableObject {
     @Published var courses: [Course] = []
     var humanitiesCourses : [Course] {
-      courses.filter{$0.course_attributes != nil && $0.course_attributes == "Humanities Requirement"}
+        courses.filter{$0.course_attributes != nil && $0.course_attributes == "Humanities Requirement"}
     }
-  var socialCourses : [Course] {
-    courses.filter{$0.course_attributes != nil && $0.course_attributes == "Social Science Requirement"}
-  }
-  
-  @Published var prerequisiteCodes : [String] = []
-  @Published var timeCRNS : [CRN] = []
-  @Published var times : [MeetingTime] = []
-  //@published var userPrereqs
+    var socialCourses : [Course] {
+        courses.filter{$0.course_attributes != nil && $0.course_attributes == "Social Science Requirement"}
+    }
+    
+    var noConflictCourses : [Course]
+    {
+        courses.filter{checkNoOverlap(userCourses: userCourses, course: $0)}
+    }
+    
+    @Published var prerequisiteCodes : [String] = []
+    @Published var userCourses : [UserCourse] = []
+    @Published var times : [MeetingTime] = []
+    //@published var userPrereqs
     static let shared = FBModel()
     
     func loadCourses() {
-        let url = URL(string: "https://oscartracker.herokuapp.com/testCourses/100/")!
+        let url = URL(string: "https://oscartracker.herokuapp.com/testCourses/5/")!
         let data = try! Data(contentsOf: url)
         let courses = try! JSONDecoder().decode([Course].self, from: data)
         self.courses = courses
@@ -131,70 +138,133 @@ class FBModel: ObservableObject {
     
     
     /*
-    "meetings": [
+     "meetings": [
      {
-         "time": "2:00 pm - 3:15 pm",
-         "days": "TR",
-         "location": "Instr Center 111",
-         "type": "Lecture*",
-         "instructor": ["Ling   Liu"]
+     "time": "2:00 pm - 3:15 pm",
+     "days": "TR",
+     "location": "Instr Center 111",
+     "type": "Lecture*",
+     "instructor": ["Ling   Liu"]
      }
-    ]
+     ]
      
-   
+     
      func (MeetingTime a, MeetingTime b)
-    if a and b days do not match, then no issue
+     if a and b days do not match, then no issue
      if they match
-      parse the time(12:30 pm - 1:20 pm), parse (b time)
+     parse the time(12:30 pm - 1:20 pm), parse (b time)
      check if they overlap, and if they do return false
-
+     
      */
     
-    func checkOverLap(_ x: MeetingTime, y: MeetingTime) -> Bool {
-        if (x == nil || y == nil) {
-            return false
-        }
-        let xDays = Array(x.days)
-        let yDays = Array(y.days)
-        for xDay in xDays {
-            for yDay in yDays { // "12:30 pm - 1:45 pm"
-                // Obtain the hour and minutes of x, obtain just the prefix of the hour if its just one char
-                var xTimeHour = x.time.prefix(2)
-                if (xTimeHour.suffix(1) == ":") {
-                    xTimeHour = xTimeHour.prefix(1)
+    func checkNoOverlap(userCourses: [UserCourse], course: Course) -> Bool {
+        
+        if let sections = course.sections {
+            for section in sections{
+                if let meetings = section.meetings{
+                    for meeting in meetings{
+                        if let days = meeting.days, let time = meeting.time{
+                            for userCourse in userCourses {
+                                if(userCourse.infoFound){
+                                    let dateFormatter = DateFormatter()
+                                    let dayUser = userCourse.section.meetings![0].days!
+                                    let dayCourse = days
+                                    let timeUser = userCourse.section.meetings![0].time
+                                    let timeCourse = time
+                                    
+                                    let userDays = Array(dayUser)
+                                    var noMatches = true
+                                    for day in userDays{
+                                        if(dayCourse.contains(day)){
+                                            noMatches = false
+                                            break
+                                        }
+                                    }
+                                    
+                                    
+                                    
+                                    if(!noMatches){
+                                        dateFormatter.dateFormat = "hh:mm a"
+                                        var userTime = timeUser!.split(separator: "-").map( {
+                                            $0.trimmingCharacters(in: .whitespacesAndNewlines)
+                                        })
+                                        
+                                        if(userTime[0].count != 8) {
+                                            userTime[0] = "0" + userTime[0]
+                                            print(userTime[0])
+                                        }
+                                        if(userTime[1].count != 8) {
+                                            userTime[1] = "0" + userTime[1]
+                                            print(userTime[1])
+                                        }
+                                        
+                                        var courseTime = timeCourse.split(separator: "-").map( {
+                                            $0.trimmingCharacters(in: .whitespacesAndNewlines)
+                                        })
+                                        
+                                        if(courseTime[0].count != 8) {
+                                            courseTime[0] = "0" + courseTime[0]
+                                            print(courseTime[0])
+                                        }
+                                        if(courseTime[1].count != 8) {
+                                            courseTime[1] = "0" + courseTime[1]
+                                            print(courseTime[1])
+                                        }
+                                        
+                                        
+                                        
+                                        let startTime1 = dateFormatter.date(from: userTime[0])!
+                                        let endTime1 = dateFormatter.date(from: userTime[1])!
+                                        let startTime2 = dateFormatter.date(from: courseTime[0])!
+                                        let endTime2 = dateFormatter.date(from: courseTime[1])!
+                                        
+                                        let range1 = startTime1...endTime1
+                                        let range2 = startTime2...endTime2
+                                        
+                                        return !range1.overlaps(range2)
+                                        
+                                    }
+                                    else {
+                                        return true
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
                 }
-                
-                // Obtain the hour and minutes of y, same with x, make sure that colon is not assigned
-                var xTimeMin = Array(y.time)[3] + Array(x.time)[4]
-                var yTimeHour = y.time.suffix(2)
             }
+           
         }
-        return false;
+        return true
     }
     
     
     func searchTime(crn : String) {
         for course in courses {
-          if let sections = course.sections {
-            for section in sections{
-              if(section.crn == crn){
-                if let meetings = section.meetings{
-                  for meeting in meetings{
-                    if let days = meeting.days, let time = meeting.time{
-                      print(days)
-                      print(time)
-                      times.append(MeetingTime(days: days, time: time))
-                      timeCRNS.append(CRN(code: crn, infoFound: true))
-                      return
+            if let sections = course.sections {
+                for section in sections{
+                    if(section.crn == crn){
+                        if let meetings = section.meetings{
+                            for meeting in meetings{
+                                if let days = meeting.days, let time = meeting.time{
+                                    print(days)
+                                    print(time)
+                                    let courseName = course.school + " " + String(course.number)
+                                    userCourses.append(UserCourse(crn: crn, course: courseName, section: section, infoFound: true))
+                                    return
+                                }
+                            }
+                        }
+                        let courseName = course.school + " " + String(course.number)
+                        userCourses.append(UserCourse(crn: crn, course: courseName, section: section, infoFound: false))
+                        return
                     }
-                  }
                 }
-              }
             }
-          }
         }
-        print("failed")
-        timeCRNS.append(CRN(code: crn, infoFound: false))
-        return
+        //        print("failed")
+        //        userCourses.append(UserCourse(crn: crn, course: courseName, section: section, infoFound: true))
+        //        return
     }
 }
