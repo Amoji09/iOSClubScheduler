@@ -22,25 +22,19 @@ struct CourseView : View{
     
     NavigationView {
       VStack{
-        Toggle(isOn: $filterHum) {
-          Text("Show Humanities")
-        }
-        Toggle(isOn: $filterSoc) {
-          Text("Show Social Sciences")
-        }
-        ScrollView {
-          List {
-            ForEach(Array(model.groupedCourses.keys), id : \.self) { key in
-//              Section(header: Text(key)){
-//                ForEach(model.groupedCourses[key]!, id : \.self){ course in
-//                  Text(course.number)
-//                }
-//              }\
-              Text(key)
+        List(Array(model.groupedCourses.keys), id : \.self ) { key in
+          Section(header: Text(key)) {
+            ForEach(model.groupedCourses[key] ?? [], id: \.self) { course in
+              if(course.sect)
+              NavigationLink(destination: CourseDetailView(course: course)){
+                HStack{
+                  Text(course.fullname)
+                }
+              }
             }
-          }.listStyle(.grouped)
+          }
         }
-      }
+      }.listStyle(.grouped)
     }
     .navigationBarTitle(Text("Georgia Tech courses"))
   }
@@ -124,7 +118,7 @@ struct MeetingView : View{
 }
 
 struct CourseView_Previews: PreviewProvider {
-    static var previews: some View {
-        CourseView()
-    }
+  static var previews: some View {
+    CourseView()
+  }
 }
