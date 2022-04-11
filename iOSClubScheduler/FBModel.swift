@@ -35,9 +35,9 @@ import Foundation
 
 //TODO: Custom tree
 
-struct Prerequisites: Decodable, Hashable {
-  let type : String
-  //let courses :
+struct Prerequisites: Identifiable, Codable {
+    let id: UUID
+    let type : String
 }
 
 

@@ -10,14 +10,24 @@ import SwiftUI
 
 
 struct ContentView: View {
+    
+    @Binding var prereqs: [String]
+    
   var body: some View{
     TabView{
       CourseView()
         .tabItem{
           Label("Courses",systemImage: "list.dash")
         }
-      PrerequisiteMenuView()
-        .tabItem{
+        /*PrerequisiteMenuView(prereqs: prereqData.prereqs) {
+            PrereqStore.save(prereqs: prereqData.prereqs) { result in
+                if case .failure(let error) = result {
+                    fatalError(error.localizedDescription)
+                }
+            }
+        }*/
+        .tabItem {
+            
           Label("Prereqs", systemImage: "textformat")
         }
     }
@@ -47,10 +57,17 @@ struct ContentView: View {
 //}
 //]
 
-struct PrerequisiteMenuView : View{
+struct PrerequisiteMenuView : View {
+    @Binding var prereqs: [String]
+    @Environment(\.scenePhase) private var scenePhase
   @StateObject var model = FBModel.shared
   @State var input = ""
+    let saveAction: ()->Void
+    
+    
+    
   var body: some View{
+      var x = print(prereqs)
     VStack{
     Text("Input Taken Classes")
       
@@ -64,18 +81,30 @@ struct PrerequisiteMenuView : View{
       }.padding().foregroundColor(Color.yellow).background(Color.blue).cornerRadius(10)
       
       List {
-        ForEach(model.prerequisiteCodes, id : \.self){ code in
-          Text(code)
-        }
-      }
+          ForEach(prereqs, id: \.self) { prereq in
+              Text(prereq)
+          }
+        .onDelete(perform: deletePrereq)
+      }.listRowBackground(Color.white)
     }
     .padding()
-    
+    .onChange(of: scenePhase) { phase in
+        if phase == .inactive {
+            saveAction()
+        }
+    }
   }
+        
   
   func addPrereq(){
-    model.prerequisiteCodes.append(input)
+      model.prerequisiteCodes.append(input)
+      prereqs.append(input)
   }
+    
+    func deletePrereq(at offsets: IndexSet) {
+        model.prerequisiteCodes.remove(atOffsets: offsets)
+        prereqs.remove(atOffsets: offsets)
+    }
   
   func validateCode() -> Bool{
     var parts = input.components(separatedBy: " ")
@@ -217,8 +246,7 @@ struct MeetingView : View{
 }
 
 
-struct ContentView_Previews: PreviewProvider {
+/*struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-   ContentView()
   }
-}
+}*/

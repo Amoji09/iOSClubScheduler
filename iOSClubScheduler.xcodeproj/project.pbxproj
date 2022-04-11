@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BBB288B727FF955100554A62 /* PrereqStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB288B627FF955100554A62 /* PrereqStore.swift */; };
 		CAA9195427C82C64005143FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAA9195327C82C64005143FC /* GoogleService-Info.plist */; };
 		CAE4D71D27BF024F005CEE00 /* iOSClubSchedulerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D71C27BF024F005CEE00 /* iOSClubSchedulerApp.swift */; };
 		CAE4D71F27BF024F005CEE00 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D71E27BF024F005CEE00 /* ContentView.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BBB288B627FF955100554A62 /* PrereqStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrereqStore.swift; sourceTree = "<group>"; };
 		CAA9195327C82C64005143FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CAE4D71927BF024F005CEE00 /* iOSClubScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSClubScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE4D71C27BF024F005CEE00 /* iOSClubSchedulerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSClubSchedulerApp.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				CAE4D71C27BF024F005CEE00 /* iOSClubSchedulerApp.swift */,
 				CAE4D71E27BF024F005CEE00 /* ContentView.swift */,
 				CAE4D75127BF086C005CEE00 /* FBModel.swift */,
+				BBB288B627FF955100554A62 /* PrereqStore.swift */,
 				CAE4D72027BF0250005CEE00 /* Assets.xcassets */,
 				CAE4D72227BF0250005CEE00 /* Preview Content */,
 			);
@@ -268,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBB288B727FF955100554A62 /* PrereqStore.swift in Sources */,
 				CAE4D71F27BF024F005CEE00 /* ContentView.swift in Sources */,
 				CAE4D75227BF086C005CEE00 /* FBModel.swift in Sources */,
 				CAE4D71D27BF024F005CEE00 /* iOSClubSchedulerApp.swift in Sources */,
@@ -431,7 +435,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iOSClubScheduler/Preview Content\"";
-				DEVELOPMENT_TEAM = A3VL267Y3N;
+				DEVELOPMENT_TEAM = K7V3QWMXRQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -444,7 +448,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.amoghmantri.iOSClubScheduler2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ericzhou.iOSClubScheduler2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -460,7 +464,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iOSClubScheduler/Preview Content\"";
-				DEVELOPMENT_TEAM = A3VL267Y3N;
+				DEVELOPMENT_TEAM = K7V3QWMXRQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -473,7 +477,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.amoghmantri.iOSClubScheduler2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ericzhou.iOSClubScheduler2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
