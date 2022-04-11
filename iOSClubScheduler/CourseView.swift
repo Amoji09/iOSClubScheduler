@@ -25,7 +25,6 @@ struct CourseView : View{
         List(Array(model.groupedCourses.keys), id : \.self ) { key in
           Section(header: Text(key)) {
             ForEach(model.groupedCourses[key] ?? [], id: \.self) { course in
-              if(course.sect)
               NavigationLink(destination: CourseDetailView(course: course)){
                 HStack{
                   Text(course.fullname)

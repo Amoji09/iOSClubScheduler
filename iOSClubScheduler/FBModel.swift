@@ -135,7 +135,6 @@ class FBModel: ObservableObject {
   
   var groupedCourses : [String : [Course]] = [:]
   
-  @Published var prerequisiteCodes : [String] = []
 //  @Published var timeCRNS : [CRN] = []
 //  @Published var times : [MeetingTime] = []
   //@published var userPrereqs
