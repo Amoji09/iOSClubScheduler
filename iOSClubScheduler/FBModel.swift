@@ -164,6 +164,7 @@ class FBModel: ObservableObject {
                 if let meetings = section.meetings{
                     for meeting in meetings{
                         if let days = meeting.days, let time = meeting.time{
+                            var noOverlapWithCourses = true
                             for userCourse in userCourses {
                                 if(userCourse.infoFound){
                                     let dateFormatter = DateFormatter()
@@ -177,14 +178,8 @@ class FBModel: ObservableObject {
                                     for day in userDays{
                                         if(dayCourse.contains(day)){
                                             noMatches = false
-                                            break
                                         }
                                     }
-                                    
-                                    if(noMatches) {
-                                        return true
-                                    }
-                        
                                     if(!noMatches){
                                         dateFormatter.dateFormat = "hh:mm a"
                                         var userTime = timeUser!.split(separator: "-").map( {
@@ -223,21 +218,22 @@ class FBModel: ObservableObject {
                                         let range1 = startTime1...endTime1
                                         let range2 = startTime2...endTime2
                                         
-                                        if(!range1.overlaps(range2)){
-                                            return true
+                                        if(range1.overlaps(range2)){
+                                            noOverlapWithCourses = false
+                                            break
                                         }
                                     }
-                                    else {
-                                        return true
-                                    }
-                                    
                                 }
                             }
+                            if(noOverlapWithCourses) {
+                                return true
+                            }
+                        } else {
+                            return true
                         }
                     }
                 }
             }
-           
         }
         return false
     }
