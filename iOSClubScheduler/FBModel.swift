@@ -33,20 +33,58 @@ import Foundation
 //after that support nested prerequisites
 //hold array of course codes
 
+//TODO: Custom tree
+
+
+/*func (MeetingTime a, MeetingTime b)
+if a and b days do not match, then no issue
+ if they match
+  parse the time(12:30 pm - 1:20 pm), parse (b time)
+ check if they overlap, and if they do return false
+
+ */
+
+//struct MeetingTime {
+//  var days : [String] = []
+//  var time : [String.SubSequence]
+//
+//  init (d : String, t : String) {
+//    var t = t.filter { !$0.isWhitespace }
+//    time = t.split(separator: "-")
+//    for day in d {
+//      days.append(String(day))
+//    }
+//  }
+//
+//}
+
+struct CRN : Identifiable, Hashable{
+  var id : String {
+    return code
+  }
+  let code : String
+  let infoFound : Bool
+}
+
 struct Prerequisites: Decodable, Hashable {
   let type : String
-  //let courses : [String]
+  //let courses :
 }
 
 
 struct Meeting: Decodable, Hashable{
   var days : String?
+  var time : String?
   var location : String?
   var instructors : [String]?
+  
+  func checkOverlap(time : String) -> Bool{
+    return false
+  }
 }
 
 
-struct Section: Decodable, Hashable, Identifiable {
+struct SectionModel: Decodable, Hashable, Identifiable {
     
     var id: String {
         return crn
@@ -69,7 +107,7 @@ struct Course: Decodable, Hashable, Identifiable {
     let school: String
     let course_attributes: String?
     let number: String
-    var sections: [Section]?
+    var sections: [SectionModel]?
     //TODO: Add prerequisites, might need to make optional since it's always not present
   
   
@@ -91,12 +129,14 @@ class FBModel: ObservableObject {
     var humanitiesCourses : [Course] {
       courses.filter{$0.course_attributes != nil && $0.course_attributes == "Humanities Requirement"}
     }
-  var socialCourses : [Course] {
-    courses.filter{$0.course_attributes != nil && $0.course_attributes == "Social Science Requirement"}
-  }
+    var socialCourses : [Course] {
+      courses.filter{$0.course_attributes != nil && $0.course_attributes == "Social Science Requirement"}
+    }
   
-  @Published var prerequisiteCodes : [String] = []
+  var groupedCourses : [String : [Course]] = [:]
   
+//  @Published var timeCRNS : [CRN] = []
+//  @Published var times : [MeetingTime] = []
   //@published var userPrereqs
     static let shared = FBModel()
     
@@ -105,6 +145,32 @@ class FBModel: ObservableObject {
         let data = try! Data(contentsOf: url)
         let courses = try! JSONDecoder().decode([Course].self, from: data)
         self.courses = courses
+      self.groupedCourses = Dictionary(grouping:self.courses){$0.school}
+      print(groupedCourses)
     }
     
+//  func searchTime(crn : String){
+//    for course in courses {
+//      if let sections = course.sections {
+//        for section in sections{
+//          if(section.crn == crn){
+//            if let meetings = section.meetings{
+//              for meeting in meetings{
+//                if let days = meeting.days, let time = meeting.time{
+//                  print(days)
+//                  print(time)
+//                  times.append(MeetingTime(d: days, t: time))
+//                  timeCRNS.append(CRN(code: crn, infoFound: true))
+//                  return
+//                }
+//              }
+//            }
+//          }
+//        }
+//      }
+//    }
+//    print("failed")
+//    timeCRNS.append(CRN(code: crn, infoFound: false))
+//    return
+//  }
 }
