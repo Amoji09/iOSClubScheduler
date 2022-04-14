@@ -29,7 +29,7 @@ struct CourseView : View{
             Image(systemName: "magnifyingglass")
           }
         }
-        List(Array(model.groupedCourses.keys), id : \.self ) { key in
+        List(Array(model.groupedCourses.keys).sorted(), id : \.self ) { key in
           Section(header: Text(key)) {
             ForEach(model.groupedCourses[key] ?? [], id: \.self) { course in
               if (course.sections != nil) {
