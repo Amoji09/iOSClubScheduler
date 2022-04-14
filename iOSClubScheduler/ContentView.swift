@@ -179,7 +179,7 @@ struct CourseDetailView: View {
 
 
 struct SectionView : View{
-  let section : Section
+  let section : SectionModel
   var body : some View{
     VStack{
       Text(section.crn)

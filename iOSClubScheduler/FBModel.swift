@@ -47,7 +47,7 @@ struct UserCourse : Identifiable, Hashable{
   }
   let crn : String
   let course : String
-  let section : Section
+  let section : SectionModel
   let infoFound : Bool
 }
 
@@ -69,7 +69,7 @@ struct Meeting: Decodable, Hashable{
 }
 
 
-struct Section: Decodable, Hashable, Identifiable {
+struct SectionModel: Decodable, Hashable, Identifiable {
   
   var id: String {
     return crn
@@ -92,7 +92,7 @@ struct Course: Decodable, Hashable, Identifiable {
   let school: String
   let course_attributes: String?
   let number: String
-  var sections: [Section]?
+  var sections: [SectionModel]?
   //TODO: Add prerequisites, might need to make optional since it's always not present
   
   
