@@ -22,8 +22,7 @@ struct PrerequisiteMenuView : View {
           .font(.system(size: 30, weight: .semibold, design: .default))
         Spacer()
       }.padding(EdgeInsets(top: 12, leading: 12, bottom: 0, trailing: 0))
-      Divider()
-      
+      Divider()      
       HStack {
         TextField("Course Code:",text : $input)
           .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
@@ -80,7 +79,6 @@ struct PrerequisiteMenuView : View {
     return true
   }
 }
-
 
 /*struct PrerequisiteMenuView_Previews: PreviewProvider {
  static var previews: some View {

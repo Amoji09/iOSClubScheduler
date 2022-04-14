@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct CRN : Identifiable, Hashable{
   var id : String {
     return code
@@ -44,7 +45,6 @@ struct Course: Decodable, Hashable, Identifiable {
   var id: String {
     return self._id
   }
-  
   let _id: String
   let semester: String
   let fullname: String
@@ -66,6 +66,8 @@ class FBModel: ObservableObject {
   
   var groupedCourses : [String : [Course]] = [:]
   
+  @Published var prerequisiteCodes : [String] = []
+
   //  @Published var timeCRNS : [CRN] = []
   //  @Published var times : [MeetingTime] = []
   //@published var userPrereqs
