@@ -1,22 +1,22 @@
 //
-//  PrereqStore.swift
+//  CourseStore.swift
 //  iOSClubScheduler
 //
-//  Created by Eric Zhou on 4/7/22.
+//  Created by Eric Zhou on 4/12/22.
 //
 import Foundation
 import SwiftUI
-
-class PrereqStore: ObservableObject {
-  @Published var prereqs : [String] = []
+class CourseStore: ObservableObject {
   
-  private static func fileURL() throws -> URL {
+  @Published var courses: [Course] = []
+  
+  internal static func fileURL() throws -> URL {
     try FileManager.default.url(for: .documentDirectory,
                                 in: .userDomainMask, appropriateFor: nil, create: false)
-    .appendingPathComponent("prereq.data")
+    .appendingPathComponent("course.data")
   }
   
-  static func load(completion: @escaping (Result<[String], Error>)-> Void) {
+  static func load(completion: @escaping (Result<[Course], Error>)-> Void) {
     DispatchQueue.global(qos: .background).async {
       do {
         let fileURL = try fileURL()
@@ -26,9 +26,9 @@ class PrereqStore: ObservableObject {
           }
           return
         }
-        let prereqData = try JSONDecoder().decode([String].self, from: file.availableData)
+        let courseData = try JSONDecoder().decode([Course].self, from: file.availableData)
         DispatchQueue.main.async {
-          completion(.success(prereqData))
+          completion(.success(courseData))
         }
       } catch {
         DispatchQueue.main.async {
@@ -38,14 +38,15 @@ class PrereqStore: ObservableObject {
     }
   }
   
-  static func save(prereqs: [String], completion: @escaping (Result<Int, Error>)->Void) {
+  static func refresh(courses: [Course], completion: @escaping (Result<Int, Error>)->Void) {
     DispatchQueue.global(qos: .background).async {
       do {
-        let data = try JSONEncoder().encode(prereqs)
+        let url = URL(string: "https://oscartracker.herokuapp.com/testCourses/100/")!
+        let data = try! Data(contentsOf: url)
         let outfile = try fileURL()
         try data.write(to: outfile)
         DispatchQueue.main.async {
-          completion(.success(prereqs.count))
+          completion(.success(courses.count))
         }
       } catch {
         DispatchQueue.main.async {

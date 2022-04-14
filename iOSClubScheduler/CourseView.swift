@@ -17,11 +17,23 @@ struct CourseView : View{
   @State var filterHum = false
   @State var filterSoc = false
   
+  @Binding var courses: [Course]
+  let refreshAction: ()->Void
+  
   //TODO: boolean for if filter by meeting prerequisites is true
   var body: some View {
     
     NavigationView {
       VStack{
+        HStack {
+          Spacer()
+          Button(action: {
+            refreshCourses()
+          }) {
+            Image(systemName: "goforward")
+              .padding(7).foregroundColor(Color.white).background(Color.blue).clipShape(Circle()).frame(width: 8, height: 8)
+          }
+        }.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 15))
         List(Array(model.groupedCourses.keys), id : \.self ) { key in
           Section(header: Text(key)) {
             ForEach(model.groupedCourses[key] ?? [], id: \.self) { course in
@@ -36,6 +48,10 @@ struct CourseView : View{
       }.listStyle(.grouped)
     }
     .navigationBarTitle(Text("Georgia Tech courses"))
+  }
+  
+  func refreshCourses() {
+    refreshAction()
   }
   
   
@@ -116,8 +132,8 @@ struct MeetingView : View{
   }
 }
 
-struct CourseView_Previews: PreviewProvider {
-  static var previews: some View {
-    CourseView()
-  }
-}
+/*struct CourseView_Previews: PreviewProvider {
+ static var previews: some View {
+ CourseView()
+ }
+ }*/

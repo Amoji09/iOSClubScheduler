@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB2FDE7D28062ADE00E4EC8F /* CourseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2FDE7C28062ADE00E4EC8F /* CourseStore.swift */; };
 		BB35F2BD2803BA0A00A7EBAA /* PrereqStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB35F2BC2803BA0A00A7EBAA /* PrereqStore.swift */; };
 		CA5A5C9D2803886C00CA9207 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A5C9C2803886C00CA9207 /* CourseView.swift */; };
 		CA5A5C9F280388AF00CA9207 /* PrerequisiteMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A5C9E280388AF00CA9207 /* PrerequisiteMenuView.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB2FDE7C28062ADE00E4EC8F /* CourseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseStore.swift; sourceTree = "<group>"; };
 		BB35F2BC2803BA0A00A7EBAA /* PrereqStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrereqStore.swift; sourceTree = "<group>"; };
 		CA5A5C9C2803886C00CA9207 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
 		CA5A5C9E280388AF00CA9207 /* PrerequisiteMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrerequisiteMenuView.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				CAE4D71E27BF024F005CEE00 /* ContentView.swift */,
 				CA5A5C9E280388AF00CA9207 /* PrerequisiteMenuView.swift */,
 				CA5A5C9C2803886C00CA9207 /* CourseView.swift */,
+				BB2FDE7C28062ADE00E4EC8F /* CourseStore.swift */,
 				CAE4D75127BF086C005CEE00 /* FBModel.swift */,
 				BB35F2BC2803BA0A00A7EBAA /* PrereqStore.swift */,
 				CAE4D72027BF0250005CEE00 /* Assets.xcassets */,
@@ -280,6 +283,7 @@
 				CA5A5C9F280388AF00CA9207 /* PrerequisiteMenuView.swift in Sources */,
 				CAE4D71F27BF024F005CEE00 /* ContentView.swift in Sources */,
 				BB35F2BD2803BA0A00A7EBAA /* PrereqStore.swift in Sources */,
+				BB2FDE7D28062ADE00E4EC8F /* CourseStore.swift in Sources */,
 				CAE4D75227BF086C005CEE00 /* FBModel.swift in Sources */,
 				CAE4D71D27BF024F005CEE00 /* iOSClubSchedulerApp.swift in Sources */,
 				CA5A5C9D2803886C00CA9207 /* CourseView.swift in Sources */,
@@ -443,7 +447,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iOSClubScheduler/Preview Content\"";
-				DEVELOPMENT_TEAM = A3VL267Y3N;
+				DEVELOPMENT_TEAM = K7V3QWMXRQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -456,7 +460,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.amoghmantri.iOSClubScheduler2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ericzhou.iOSClubScheduler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -472,7 +476,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iOSClubScheduler/Preview Content\"";
-				DEVELOPMENT_TEAM = A3VL267Y3N;
+				DEVELOPMENT_TEAM = K7V3QWMXRQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -485,7 +489,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.amoghmantri.iOSClubScheduler2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ericzhou.iOSClubScheduler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
