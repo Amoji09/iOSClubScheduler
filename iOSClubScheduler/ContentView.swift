@@ -10,16 +10,37 @@ import SwiftUI
 
 
 struct ContentView: View {
+  
+  init(){
+    UITableView.appearance().backgroundColor = .clear
+  }
+  
+  @StateObject private var prereqData = PrereqStore()
   var body: some View{
     TabView{
       CourseView()
         .tabItem{
           Label("Courses",systemImage: "list.dash")
         }
-      PrerequisiteMenuView()
-        .tabItem{
-          Label("Prereqs", systemImage: "textformat")
+      PrerequisiteMenuView(prereqs: $prereqData.prereqs) {
+        PrereqStore.save(prereqs: prereqData.prereqs) { result in
+          if case .failure(let error) = result {
+            fatalError(error	.localizedDescription)
+          }
         }
+      }.onAppear {
+        PrereqStore.load { result in
+          switch result {
+          case .failure(let error):
+            fatalError(error.localizedDescription)
+          case .success(let prereqs):
+            prereqData.prereqs = prereqs
+          }
+        }
+      }
+      .tabItem{
+        Label("Prereqs", systemImage: "textformat")
+      }
       CRNView()
         .tabItem{
           Label("Times", systemImage: "clock")
@@ -57,7 +78,6 @@ struct CRNView : View{
       //      }
     }
     .padding()
-    
   }
   
   func addTime(){
