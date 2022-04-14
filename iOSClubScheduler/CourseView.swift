@@ -12,7 +12,7 @@ struct CourseView : View{
   //TODO: Make a gridview matching the tutorial where each row is a different filter(using the filtered course arrays from FBModel)
   
   
-  var columns: [GridItem] = [GridItem(.flexible(minimum: 0, maximum: .infinity)), GridItem(.flexible(minimum: 0, maximum: .infinity))]
+  //var columns: [GridItem] = [GridItem(.flexible(minimum: 0, maximum: .infinity)), GridItem(.flexible(minimum: 0, maximum: .infinity))]
   @StateObject var model = FBModel.shared
   @State var filterHum = false
   @State var filterSoc = false
@@ -22,12 +22,21 @@ struct CourseView : View{
     
     NavigationView {
       VStack{
+        HStack {
+          Text("All Courses")
+          Spacer()
+          NavigationLink(destination: FilterMenuView()) {
+            Image(systemName: "magnifyingglass")
+          }
+        }
         List(Array(model.groupedCourses.keys), id : \.self ) { key in
           Section(header: Text(key)) {
             ForEach(model.groupedCourses[key] ?? [], id: \.self) { course in
-              NavigationLink(destination: CourseDetailView(course: course)){
-                HStack{
-                  Text(course.fullname)
+              if (course.sections != nil) {
+                NavigationLink(destination: CourseDetailView(course: course)){
+                  HStack{
+                    Text(course.fullname)
+                  }
                 }
               }
             }
@@ -66,26 +75,43 @@ struct CourseDetailView: View {
   var body: some View {
     VStack{
       Text(course.fullname)
-      if let attribute = course.course_attributes{
-        Text(attribute)
+      Spacer()
+      HStack{
+        Text("Attributes:")
+        if let attribute = course.course_attributes{
+          let str = String(attribute)
+          let replaced = str.replacingOccurrences(of: "&amp;", with: "&")
+          Text(replaced)
+        } else {
+          Text("None")
+        }
       }
+      
       List(course.sections ?? []) { section in
-        SectionView(section: section)
+        VStack{
+          
+          SectionView(section: section)
+          Spacer()
+        }
       }
     }
   }
 }
 
-
 struct SectionView : View{
   let section : SectionModel
   var body : some View{
     VStack{
-      Text(section.crn)
       if let meetings = section.meetings{
         ForEach(meetings, id : \.self){ meeting in
           MeetingView(meeting: meeting)
         }
+      }
+      Spacer()
+      HStack{
+        Spacer()
+        Text("CRN: " + section.crn)
+        Spacer()
       }
     }
   }
@@ -94,24 +120,53 @@ struct SectionView : View{
 struct MeetingView : View{
   let meeting : Meeting
   var body : some View {
+    
     VStack{
-      List(meeting.instructors ?? [], id: \.self){ instructor in
-        Text(instructor)
-      }
+      Spacer()
       HStack{
+        Text("Days: ")
+        Spacer()
         if let days = meeting.days{
           Text(days)
+        } else {
+          Text("Not found")
         }
+      }
+      HStack{
+        Text("Time: ")
         Spacer()
         if let time = meeting.time{
           Text(time)
+        } else {
+          Text("Not found")
+        }
+      }
+      Spacer()
+      
+      HStack{
+        Text("Location")
+        Spacer()
+        if let location = meeting.location{
+          Text(location).fixedSize(horizontal: false, vertical: true)
+        } else {
+          Text("Not found")
+        }
+      }
+      
+      HStack{
+        Text("Taught by:")
+        Spacer()
+        if (meeting.instructors == nil) {
+          Text("Not found")
+        } else {
+          List(meeting.instructors ?? [], id: \.self){ instructor in
+            Text(instructor)
+          }
         }
         
-        
       }
-      if let location = meeting.location{
-        Text(location)
-      }
+      
+      
     }
   }
 }
