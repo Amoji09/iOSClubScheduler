@@ -39,7 +39,7 @@ struct CRNView : View{
   @State var input = ""
   var body: some View{
     VStack{
-    Text("Input Taken Classes")
+      Text("Input Taken Classes")
       
       TextField("Course CRN",text : $input).overlay(
         RoundedRectangle(cornerRadius: 10)
@@ -50,11 +50,11 @@ struct CRNView : View{
         addTime()
       }.padding().foregroundColor(Color.yellow).background(Color.blue).cornerRadius(10)
       
-//      List {
-//        ForEach(model.timeCRNS, id : \.self){ crn in
-//          Text(crn.code).foregroundColor(crn.infoFound ? Color.green : Color.red)
-//        }
-//      }
+      //      List {
+      //        ForEach(model.timeCRNS, id : \.self){ crn in
+      //          Text(crn.code).foregroundColor(crn.infoFound ? Color.green : Color.red)
+      //        }
+      //      }
     }
     .padding()
     
@@ -67,6 +67,6 @@ struct CRNView : View{
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-   ContentView()
+    ContentView()
   }
 }

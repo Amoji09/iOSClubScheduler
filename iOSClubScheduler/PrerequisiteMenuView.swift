@@ -13,7 +13,7 @@ struct PrerequisiteMenuView : View{
   @State var input = ""
   var body: some View{
     VStack{
-    Text("Input Taken Classes")
+      Text("Input Taken Classes")
       
       TextField("Course code",text : $input).overlay(
         RoundedRectangle(cornerRadius: 10)
@@ -52,7 +52,7 @@ struct PrerequisiteMenuView : View{
 
 
 struct PrerequisiteMenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        PrerequisiteMenuView()
-    }
+  static var previews: some View {
+    PrerequisiteMenuView()
+  }
 }
