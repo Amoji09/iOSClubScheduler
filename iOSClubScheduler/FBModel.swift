@@ -158,7 +158,6 @@ class FBModel: ObservableObject {
    */
   
   func checkNoOverlap(userCourses: [UserCourse], course: Course) -> Bool {
-    
     if let sections = course.sections {
       for section in sections{
         if let meetings = section.meetings{
