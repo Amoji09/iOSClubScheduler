@@ -23,11 +23,11 @@ struct CourseView : View{
     NavigationView {
       VStack{
           HStack {
-              Text("All Courses")
+              Text("Courses").padding(10)
               Spacer()
               NavigationLink(destination: FilterMenuView()) {
                   Image(systemName: "magnifyingglass")
-              }
+              }.padding(10)
           }
         List(Array(model.groupedCourses.keys), id : \.self ) { key in
           Section(header: Text(key)) {
@@ -41,17 +41,14 @@ struct CourseView : View{
                   }
               }
           }
-            
-            
         }
       }.listStyle(.grouped)
     }
-    .navigationBarTitle(Text("Georgia Tech courses"))
+    .navigationBarTitle(Text("All Courses"))
   }
   
   
-  func displaySelectedCourses() -> [Course]{
-    
+  func displaySelectedCourses() -> [Course] {
     //TODO: Modify for accounting for prerequisites
     var coursesOut : [Course] = []
     if(filterHum && filterSoc){
