@@ -98,6 +98,7 @@ struct Course: Decodable, Hashable, Identifiable {
 
 class FBModel: ObservableObject {
   @Published var courses: [Course] = []
+  @Published var groupedCourses : [String : [Course]] = [:]
   var humanitiesCourses : [Course] {
     courses.filter{$0.course_attributes != nil && $0.course_attributes == "Humanities Requirement"}
   }
@@ -119,7 +120,10 @@ class FBModel: ObservableObject {
   func loadCourses() {
     let url = URL(string: "https://oscartracker.herokuapp.com/testCourses/100/")!
     let data = try! Data(contentsOf: url)
-    let courses = try! JSONDecoder().decode([Course].self, from: data)
+    let courses = try! JSONDecoder().decode([Course].self, from: data) 
+    self.courses = courses
+    self.groupedCourses = Dictionary(grouping:self.courses){$0.school}
+    print(groupedCourses)
     self.courses = courses
   }
   
@@ -248,7 +252,5 @@ class FBModel: ObservableObject {
         }
       }
     }
-    self.groupedCourses = Dictionary(grouping:self.courses){$0.school}
-    print(groupedCourses)
   }
 }
