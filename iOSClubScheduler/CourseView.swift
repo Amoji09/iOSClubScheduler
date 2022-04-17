@@ -22,7 +22,6 @@ struct CourseView : View{
   
   //TODO: boolean for if filter by meeting prerequisites is true
   var body: some View {
-    
     NavigationView {
       VStack{
         HStack {

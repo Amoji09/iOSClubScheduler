@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct iOSClubSchedulerApp: App {
-  @StateObject private var courseData = CourseStore()
   init() {
     FBModel.shared.loadCourses()
   }

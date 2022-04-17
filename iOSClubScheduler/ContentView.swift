@@ -17,6 +17,7 @@ struct ContentView: View {
   
   @StateObject private var courseData = CourseStore()
   @StateObject private var prereqData = PrereqStore()
+  @StateObject var model = FBModel.shared
   
   var body: some View{
     TabView{
@@ -33,6 +34,13 @@ struct ContentView: View {
             fatalError(error.localizedDescription)
           case .success(let courses):
             courseData.courses = courses
+          }
+        }
+        if model.groupedCourses.isEmpty {
+          CourseStore.refresh(courses: courseData.courses) { result in
+            if case .failure(let error) = result {
+              fatalError(error.localizedDescription)
+            }
           }
         }
       }
