@@ -244,14 +244,14 @@ struct CRNView : View{
   @State var input = ""
   var body: some View{
     VStack{
-      Text("Input Taken Classes")
+      Text("Input Current Schedule")
       
       TextField("Course CRN",text : $input).overlay(
         RoundedRectangle(cornerRadius: 10)
           .stroke(Color.black, lineWidth: 1).frame(width: 300, height: 30, alignment: .center)
       ).padding()
       
-      Button("Add Taken Course") {
+      Button("Add Course") {
         addTime()
       }.padding().foregroundColor(Color.yellow).background(Color.blue).cornerRadius(10)
       
