@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		35F29F342803BF5900A1741F /* FilterMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F29F332803BF5900A1741F /* FilterMenuView.swift */; };
+		37AD9B7428062B2A001EADD0 /* PrereqNodeParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AD9B7328062B2A001EADD0 /* PrereqNodeParse.swift */; };
+		BB35F2BD2803BA0A00A7EBAA /* PrereqStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB35F2BC2803BA0A00A7EBAA /* PrereqStore.swift */; };
 		35F29F362803C8F100A1741F /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F29F352803C8F100A1741F /* ResultsView.swift */; };
 		CA5A5C9D2803886C00CA9207 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A5C9C2803886C00CA9207 /* CourseView.swift */; };
 		CA5A5C9F280388AF00CA9207 /* PrerequisiteMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A5C9E280388AF00CA9207 /* PrerequisiteMenuView.swift */; };
@@ -42,6 +44,8 @@
 /* Begin PBXFileReference section */
 		35F29F332803BF5900A1741F /* FilterMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuView.swift; sourceTree = "<group>"; };
 		35F29F352803C8F100A1741F /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		37AD9B7328062B2A001EADD0 /* PrereqNodeParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrereqNodeParse.swift; sourceTree = "<group>"; };
+		BB35F2BC2803BA0A00A7EBAA /* PrereqStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrereqStore.swift; sourceTree = "<group>"; };
 		CA5A5C9C2803886C00CA9207 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
 		CA5A5C9E280388AF00CA9207 /* PrerequisiteMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrerequisiteMenuView.swift; sourceTree = "<group>"; };
 		CAA9195327C82C64005143FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -110,10 +114,12 @@
 				CAE4D71C27BF024F005CEE00 /* iOSClubSchedulerApp.swift */,
 				CAE4D71E27BF024F005CEE00 /* ContentView.swift */,
 				CA5A5C9E280388AF00CA9207 /* PrerequisiteMenuView.swift */,
+				37AD9B7328062B2A001EADD0 /* PrereqNodeParse.swift */,
 				CA5A5C9C2803886C00CA9207 /* CourseView.swift */,
 				CAE4D75127BF086C005CEE00 /* FBModel.swift */,
 				35F29F332803BF5900A1741F /* FilterMenuView.swift */,
 				35F29F352803C8F100A1741F /* ResultsView.swift */,
+				BB35F2BC2803BA0A00A7EBAA /* PrereqStore.swift */,
 				CAE4D72027BF0250005CEE00 /* Assets.xcassets */,
 				CAE4D72227BF0250005CEE00 /* Preview Content */,
 			);
@@ -282,6 +288,8 @@
 			files = (
 				CA5A5C9F280388AF00CA9207 /* PrerequisiteMenuView.swift in Sources */,
 				CAE4D71F27BF024F005CEE00 /* ContentView.swift in Sources */,
+				BB35F2BD2803BA0A00A7EBAA /* PrereqStore.swift in Sources */,
+				37AD9B7428062B2A001EADD0 /* PrereqNodeParse.swift in Sources */,
 				CAE4D75227BF086C005CEE00 /* FBModel.swift in Sources */,
 				35F29F342803BF5900A1741F /* FilterMenuView.swift in Sources */,
 				35F29F362803C8F100A1741F /* ResultsView.swift in Sources */,
@@ -460,7 +468,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.amoghmantri.iOSClubScheduler2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amoghmantri.iOSClubScheduler6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -489,7 +497,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.amoghmantri.iOSClubScheduler2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amoghmantri.iOSClubScheduler6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
