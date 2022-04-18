@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct iOSClubSchedulerApp: App {
   init() {
-    FBModel.shared.loadCourses()
+    APIModel.shared.loadCourses()
   }
   var body: some Scene {
     WindowGroup {

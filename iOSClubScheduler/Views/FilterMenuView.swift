@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 struct FilterMenuView : View {
-    @StateObject var model = FBModel.shared
+    @StateObject var model = APIModel.shared
     var attributes = ["All", "Honors Program", "Humanities Requirement", "Low-cost $40 or undr req textbk", "No-cost $0 req'd textbooks", "Social Science Requirement", "Summer Online Course"]
     @State var selectedAttribute = "All"
     @State var selectedSchool = "All"
@@ -31,20 +31,6 @@ struct FilterMenuView : View {
                     }
                 }
             }.padding([.leading, .trailing], 20)
-            
-//            VStack(alignment: .leading) {
-//                HStack{
-//                    Text("Select Attribute:")
-//                    Picker("Selected Attributes", selection: $selectedAttribute) {
-//                        ForEach(attributes, id: \.self) {
-//                            Text($0)
-//                        }
-//                    }
-//                }
-//                Text("You selected: \(selectedAttribute)")
-//            }.padding(20)
-            
-            // school selector
             HStack{
                 Text("Select School:")
                 Picker("Selected School", selection: $selectedSchool) {
@@ -56,22 +42,7 @@ struct FilterMenuView : View {
                 schoolsList = Array(model.groupedCourses.keys)
                 schoolsList.append("All")
             })
-//            VStack(alignment: .leading) {
-//                HStack{
-//                    Text("Select School:")
-//                    Picker("Selected School", selection: $selectedSchool) {
-//                        ForEach(schoolsList, id: \.self) {
-//                            Text($0)
-//                        }
-//                    }
-//                }
-//                Text("You selected: \(selectedSchool)")
-//            }.padding(20).onAppear(perform: {
-//                schoolsList = Array(model.groupedCourses.keys)
-//                schoolsList.append("All")
-//            })
-            
-            
+          
             // satisfies prereqes toggle
             Toggle("Satisfied Prereqs", isOn: $satisfiesPrereqs).padding([.top, .leading, .trailing], 20)
             

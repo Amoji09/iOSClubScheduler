@@ -11,7 +11,7 @@ import SwiftUI
 struct PrerequisiteMenuView : View {
   @Binding var prereqs: [String]
   @Environment(\.scenePhase) private var scenePhase
-  @StateObject var model = FBModel.shared
+  @StateObject var model = APIModel.shared
   @State var input = ""
   let saveAction: () -> Void
   

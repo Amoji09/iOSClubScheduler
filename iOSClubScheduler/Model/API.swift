@@ -7,100 +7,9 @@
 
 import Foundation
 import Combine
-//"sections": [
-//{
-//"section_id": "A",
-//"crn": "81031",
-//"meetings": [
-//  {
-//"time": "12:30 pm - 1:20 pm",
-//"days": "MWF",
-//"location": "Engr Science & Mech 202",
-//"type": "Lecture*",
-//"instructor": [
-//"Yi-Hsien   Ho"
-//]
-//}
-//],
-//"instructors": [
-//"Yi-Hsien   Ho"
-//]
-//}
-//]
-
-//TODO: Set up prerequisites struct that is decodable,hashable
-//needs to support types of prerequisites
-//after that support nested prerequisites
-//hold array of course codes
-
-//TODO: Custom tree
-
-struct MeetingTime {
-  let days : String
-  let time : String
-  
-}
-
-struct UserCourse : Identifiable, Hashable{
-  var id : String {
-    return crn
-  }
-  let crn : String
-  let course : String
-  let section : SectionModel
-  let infoFound : Bool
-}
-
-struct Prerequisites: Decodable, Hashable {
-  let type : String
-  //let courses :
-}
 
 
-struct Meeting: Codable, Hashable{
-  var days : String?
-  var time : String?
-  var location : String?
-  var instructors : [String]?
-  
-  func checkOverlap(time : String) -> Bool{
-    return false
-  }
-}
-
-
-struct SectionModel: Codable, Hashable, Identifiable {
-  
-  var id: String {
-    return crn
-  }
-  
-  let section_id: String
-  let crn: String
-  var meetings : [Meeting]?
-}
-
-
-struct Course: Codable, Hashable, Identifiable {
-  var id: String {
-    return self._id
-  }
-  
-  var getNumber: String {
-    return self.number
-  }
-  
-  let _id: String
-  let semester: String
-  let fullname: String
-  let school: String
-  let course_attributes: String?
-  let number: String
-  var sections: [SectionModel]?
-  var prerequisites: Node?
-}
-
-class FBModel: NSObject, ObservableObject {
+class APIModel: NSObject, ObservableObject {
   @Published var courses: [Course] = []
   @Published var groupedCourses : [String : [Course]] = [:]
   var humanitiesCourses : [Course] {
@@ -131,9 +40,8 @@ class FBModel: NSObject, ObservableObject {
   
   @Published var prerequisiteCodes : [String] = []
   @Published var userCourses : [UserCourse] = []
-  @Published var times : [MeetingTime] = []
   //@published var userPrereqs
-  static let shared = FBModel()
+  static let shared = APIModel()
   
   private var dataTaskCancellable: AnyCancellable?
   func loadCourses() {

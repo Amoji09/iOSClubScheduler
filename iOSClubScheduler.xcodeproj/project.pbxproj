@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		35F29F342803BF5900A1741F /* FilterMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F29F332803BF5900A1741F /* FilterMenuView.swift */; };
+		35F29F362803C8F100A1741F /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F29F352803C8F100A1741F /* ResultsView.swift */; };
 		37AD9B7428062B2A001EADD0 /* PrereqNodeParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AD9B7328062B2A001EADD0 /* PrereqNodeParse.swift */; };
 		BB2FDE7D28062ADE00E4EC8F /* CourseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2FDE7C28062ADE00E4EC8F /* CourseStore.swift */; };
 		BB35F2BD2803BA0A00A7EBAA /* PrereqStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB35F2BC2803BA0A00A7EBAA /* PrereqStore.swift */; };
-		35F29F362803C8F100A1741F /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F29F352803C8F100A1741F /* ResultsView.swift */; };
+		CA33E91C280E0A55005EB186 /* CRNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA33E91B280E0A55005EB186 /* CRNView.swift */; };
+		CA33E91E280E0AA7005EB186 /* CRNStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA33E91D280E0AA7005EB186 /* CRNStore.swift */; };
+		CA33E920280E0AC4005EB186 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA33E91F280E0AC4005EB186 /* Course.swift */; };
 		CA5A5C9D2803886C00CA9207 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A5C9C2803886C00CA9207 /* CourseView.swift */; };
 		CA5A5C9F280388AF00CA9207 /* PrerequisiteMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A5C9E280388AF00CA9207 /* PrerequisiteMenuView.swift */; };
 		CAA9195427C82C64005143FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAA9195327C82C64005143FC /* GoogleService-Info.plist */; };
@@ -22,7 +25,7 @@
 		CAE4D72E27BF0250005CEE00 /* iOSClubSchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D72D27BF0250005CEE00 /* iOSClubSchedulerTests.swift */; };
 		CAE4D73827BF0250005CEE00 /* iOSClubSchedulerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D73727BF0250005CEE00 /* iOSClubSchedulerUITests.swift */; };
 		CAE4D73A27BF0250005CEE00 /* iOSClubSchedulerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D73927BF0250005CEE00 /* iOSClubSchedulerUITestsLaunchTests.swift */; };
-		CAE4D75227BF086C005CEE00 /* FBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D75127BF086C005CEE00 /* FBModel.swift */; };
+		CAE4D75227BF086C005CEE00 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4D75127BF086C005CEE00 /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		37AD9B7328062B2A001EADD0 /* PrereqNodeParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrereqNodeParse.swift; sourceTree = "<group>"; };
 		BB2FDE7C28062ADE00E4EC8F /* CourseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseStore.swift; sourceTree = "<group>"; };
 		BB35F2BC2803BA0A00A7EBAA /* PrereqStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrereqStore.swift; sourceTree = "<group>"; };
+		CA33E91B280E0A55005EB186 /* CRNView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRNView.swift; sourceTree = "<group>"; };
+		CA33E91D280E0AA7005EB186 /* CRNStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRNStore.swift; sourceTree = "<group>"; };
+		CA33E91F280E0AC4005EB186 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		CA5A5C9C2803886C00CA9207 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
 		CA5A5C9E280388AF00CA9207 /* PrerequisiteMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrerequisiteMenuView.swift; sourceTree = "<group>"; };
 		CAA9195327C82C64005143FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -61,7 +67,7 @@
 		CAE4D73327BF0250005CEE00 /* iOSClubSchedulerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSClubSchedulerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE4D73727BF0250005CEE00 /* iOSClubSchedulerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSClubSchedulerUITests.swift; sourceTree = "<group>"; };
 		CAE4D73927BF0250005CEE00 /* iOSClubSchedulerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSClubSchedulerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		CAE4D75127BF086C005CEE00 /* FBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBModel.swift; sourceTree = "<group>"; };
+		CAE4D75127BF086C005CEE00 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA33E918280E09E8005EB186 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				37AD9B7328062B2A001EADD0 /* PrereqNodeParse.swift */,
+				CAE4D75127BF086C005CEE00 /* API.swift */,
+				CA33E91F280E0AC4005EB186 /* Course.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CA33E919280E09FB005EB186 /* DataStores */ = {
+			isa = PBXGroup;
+			children = (
+				BB2FDE7C28062ADE00E4EC8F /* CourseStore.swift */,
+				BB35F2BC2803BA0A00A7EBAA /* PrereqStore.swift */,
+				CA33E91D280E0AA7005EB186 /* CRNStore.swift */,
+			);
+			path = DataStores;
+			sourceTree = "<group>";
+		};
+		CA33E91A280E0A19005EB186 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CA5A5C9E280388AF00CA9207 /* PrerequisiteMenuView.swift */,
+				35F29F332803BF5900A1741F /* FilterMenuView.swift */,
+				35F29F352803C8F100A1741F /* ResultsView.swift */,
+				CA5A5C9C2803886C00CA9207 /* CourseView.swift */,
+				CAE4D71E27BF024F005CEE00 /* ContentView.swift */,
+				CA33E91B280E0A55005EB186 /* CRNView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		CAE4D71027BF024F005CEE00 = {
 			isa = PBXGroup;
 			children = (
@@ -112,17 +151,11 @@
 		CAE4D71B27BF024F005CEE00 /* iOSClubScheduler */ = {
 			isa = PBXGroup;
 			children = (
-				CAA9195327C82C64005143FC /* GoogleService-Info.plist */,
 				CAE4D71C27BF024F005CEE00 /* iOSClubSchedulerApp.swift */,
-				CAE4D71E27BF024F005CEE00 /* ContentView.swift */,
-				CA5A5C9E280388AF00CA9207 /* PrerequisiteMenuView.swift */,
-				37AD9B7328062B2A001EADD0 /* PrereqNodeParse.swift */,
-				CA5A5C9C2803886C00CA9207 /* CourseView.swift */,
-				BB2FDE7C28062ADE00E4EC8F /* CourseStore.swift */,
-				CAE4D75127BF086C005CEE00 /* FBModel.swift */,
-				35F29F332803BF5900A1741F /* FilterMenuView.swift */,
-				35F29F352803C8F100A1741F /* ResultsView.swift */,
-				BB35F2BC2803BA0A00A7EBAA /* PrereqStore.swift */,
+				CA33E91A280E0A19005EB186 /* Views */,
+				CA33E919280E09FB005EB186 /* DataStores */,
+				CA33E918280E09E8005EB186 /* Model */,
+				CAA9195327C82C64005143FC /* GoogleService-Info.plist */,
 				CAE4D72027BF0250005CEE00 /* Assets.xcassets */,
 				CAE4D72227BF0250005CEE00 /* Preview Content */,
 			);
@@ -289,14 +322,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA33E920280E0AC4005EB186 /* Course.swift in Sources */,
 				CA5A5C9F280388AF00CA9207 /* PrerequisiteMenuView.swift in Sources */,
 				CAE4D71F27BF024F005CEE00 /* ContentView.swift in Sources */,
 				BB35F2BD2803BA0A00A7EBAA /* PrereqStore.swift in Sources */,
 				37AD9B7428062B2A001EADD0 /* PrereqNodeParse.swift in Sources */,
 				BB2FDE7D28062ADE00E4EC8F /* CourseStore.swift in Sources */,
-				CAE4D75227BF086C005CEE00 /* FBModel.swift in Sources */,
+				CAE4D75227BF086C005CEE00 /* API.swift in Sources */,
 				35F29F342803BF5900A1741F /* FilterMenuView.swift in Sources */,
 				35F29F362803C8F100A1741F /* ResultsView.swift in Sources */,
+				CA33E91C280E0A55005EB186 /* CRNView.swift in Sources */,
+				CA33E91E280E0AA7005EB186 /* CRNStore.swift in Sources */,
 				CAE4D71D27BF024F005CEE00 /* iOSClubSchedulerApp.swift in Sources */,
 				CA5A5C9D2803886C00CA9207 /* CourseView.swift in Sources */,
 			);

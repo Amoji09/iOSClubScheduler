@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CourseView : View {
-  @StateObject var model = FBModel.shared
+  @StateObject var model = APIModel.shared
   @State var filterHum = false
   @State var filterSoc = false
   
