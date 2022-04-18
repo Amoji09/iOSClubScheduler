@@ -244,22 +244,34 @@ struct CRNView : View{
   @State var input = ""
   var body: some View{
     VStack{
-      Text("Input Taken Classes")
-      
-      TextField("Course CRN",text : $input).overlay(
-        RoundedRectangle(cornerRadius: 10)
-          .stroke(Color.black, lineWidth: 1).frame(width: 300, height: 30, alignment: .center)
-      ).padding()
-      
-      Button("Add Taken Course") {
-        addTime()
-      }.padding().foregroundColor(Color.yellow).background(Color.blue).cornerRadius(10)
+      HStack {
+        Text("Check Time")
+          .font(.system(size: 30, weight: .semibold, design: .default))
+        Spacer()
+      }.padding(EdgeInsets(top: 12, leading: 12, bottom: 0, trailing: 0))
+      Divider()
+      HStack {
+        TextField("Course CRN:",text : $input)
+          .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
+          .overlay( RoundedRectangle(cornerRadius: 10)
+            .stroke(Color.gray, lineWidth: 1).frame(height: 30)
+          ).padding(5)
+        Button(action: {
+          addTime()
+        }) {
+          Image(systemName: "plus")
+            .padding(7).foregroundColor(Color.white).background(Color.blue).clipShape(Circle()).frame(width: 12, height: 12)
+        }
+      }.padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 20))
       
       List {
         ForEach(model.userCourses, id : \.self){ userCourse in
           Text(userCourse.course).foregroundColor(userCourse.infoFound ? Color.green : Color.red)
-        }
+        }.onDelete(perform: deleteTime)
       }
+      .frame(maxWidth: .infinity)
+      .edgesIgnoringSafeArea(.all)
+      .listStyle(PlainListStyle())
       
       List {
         ForEach(model.noConflictCourses, id : \.self){ course in
@@ -267,12 +279,14 @@ struct CRNView : View{
         }
       }
     }
-    .padding()
-    
   }
   
   func addTime(){
     model.searchTime(crn: input)
+  }
+  func deleteTime(offset: IndexSet) {
+    model.userCourses.remove(atOffsets: offset)
+    print(model.userCourses.count)  // Check model.userCourse is actually deleted
   }
 }
 
