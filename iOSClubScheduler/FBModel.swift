@@ -114,19 +114,19 @@ class FBModel: NSObject, ObservableObject {
     courses.filter{checkNoOverlap(userCourses: userCourses, course: $0)}
   }
   
-    var prereqsMetCourses : [Course] {
+  func prereqsMetCourses(inputCourses : [Course])-> [Course] {
     var courseNodes : Set<Node> = []
     for code in prerequisiteCodes {
       courseNodes.insert(Node(type: .or, name: code, children: []))
     }
-    let filtered = courses.filter{
+    let filtered = inputCourses.filter{
       if let prereqs = $0.prerequisites{
         return prereqs.satisfied(nodes: courseNodes)
       } else {
         return false
       }}
-        
-        return filtered
+    
+    return filtered
   }
   
   @Published var prerequisiteCodes : [String] = []
@@ -135,26 +135,26 @@ class FBModel: NSObject, ObservableObject {
   //@published var userPrereqs
   static let shared = FBModel()
   
-    private var dataTaskCancellable: AnyCancellable?
+  private var dataTaskCancellable: AnyCancellable?
   func loadCourses() {
     let url = URL(string: "https://oscartracker.herokuapp.com/testCourses/7000")!
-      let task = URLSession.shared.dataTask(with: url) { [unowned self] data, res, error in
-          guard let data = data else { return }
-          let courses = try! JSONDecoder().decode([Course].self, from: data)
-          DispatchQueue.main.async {
-              self.courses = courses
-              self.groupedCourses = Dictionary(grouping:self.courses){$0.school}
-    //          print(groupedCourses)
-              self.courses = courses
-          }
+    let task = URLSession.shared.dataTask(with: url) { [unowned self] data, res, error in
+      guard let data = data else { return }
+      let courses = try! JSONDecoder().decode([Course].self, from: data)
+      DispatchQueue.main.async {
+        self.courses = courses
+        self.groupedCourses = Dictionary(grouping:self.courses){$0.school}
+        //          print(groupedCourses)
+        self.courses = courses
       }
-      
-      dataTaskCancellable = task.publisher(for: \.progress.fractionCompleted).sink { fraction in
-          print(fraction)
-      }
-      
-//      task.delegate = self
-      task.resume()
+    }
+    
+    dataTaskCancellable = task.publisher(for: \.progress.fractionCompleted).sink { fraction in
+      print(fraction)
+    }
+    
+    //      task.delegate = self
+    task.resume()
   }
   
   

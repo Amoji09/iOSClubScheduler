@@ -96,6 +96,9 @@ struct FilterMenuView : View {
         if (fitsSchedule) {
             filteredCourses = filteredCourses.filter{model.checkNoOverlap(userCourses: model.userCourses, course: $0)}
         }
+        if(satisfiesPrereqs) {
+          filteredCourses = model.prereqsMetCourses(inputCourses: filteredCourses)
+        }
         
         let groupedCourses = Dictionary(grouping:filteredCourses){$0.school}
         return groupedCourses
