@@ -8,11 +8,6 @@
 import SwiftUI
 
 struct CourseView : View{
-  
-  //TODO: Make a gridview matching the tutorial where each row is a different filter(using the filtered course arrays from FBModel)
-  
-  
-  //var columns: [GridItem] = [GridItem(.flexible(minimum: 0, maximum: .infinity)), GridItem(.flexible(minimum: 0, maximum: .infinity))]
   @StateObject var model = FBModel.shared
   @State var filterHum = false
   @State var filterSoc = false
@@ -25,13 +20,15 @@ struct CourseView : View{
     NavigationView {
       VStack{
         HStack {
-          Text("All Courses")
-          Spacer()
+          
           Button(action: {
             refreshCourses()
           }) {
             Image(systemName: "goforward")
               .padding(7).foregroundColor(Color.white).background(Color.blue).clipShape(Circle()).frame(width: 8, height: 8)
+          }.padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
+          Text("All Courses")
+          Spacer()
           NavigationLink(destination: FilterMenuView()) {
             Image(systemName: "magnifyingglass")
           }
@@ -47,10 +44,10 @@ struct CourseView : View{
                 }
               }
             }
-          }
-        }.listStyle(.grouped)
-        List(model.prereqsMetCourses, id : \.self ) { course in
-          Text(course.fullname)
+          }.listStyle(.grouped)
+//          List(model.prereqsMetCourses, id : \.self ) { course in
+//            Text(course.fullname)
+//          }
         }
       }
     }

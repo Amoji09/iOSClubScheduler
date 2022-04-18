@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Node: Decodable, Hashable {
-  enum NodeType: String {
+struct Node: Codable, Hashable {
+  enum NodeType: String, Codable {
     case and, or
   }
   

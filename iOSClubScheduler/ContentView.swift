@@ -18,8 +18,6 @@ struct ContentView: View {
   @StateObject private var courseData = CourseStore()
   @StateObject private var prereqData = PrereqStore()
   @StateObject var model = FBModel.shared
-  
-  @StateObject private var prereqData = PrereqStore()
   var body: some View{
     TabView{
       CourseView(courses: $courseData.courses) {
