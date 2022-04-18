@@ -10,7 +10,6 @@ import SwiftUI
 
 
 struct ContentView: View {
-  
   init(){
     UITableView.appearance().backgroundColor = .clear
   }
@@ -35,6 +34,7 @@ struct ContentView: View {
             fatalError(error.localizedDescription)
           case .success(let prereqs):
             prereqData.prereqs = prereqs
+              FBModel.shared.prerequisiteCodes = prereqs
           }
         }
       }

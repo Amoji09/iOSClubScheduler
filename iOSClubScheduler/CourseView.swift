@@ -42,7 +42,7 @@ struct CourseView : View{
             }
           }
         }.listStyle(.grouped)
-        List(Array(model.prereqsMetCourses), id : \.self ) { course in
+        List(model.prereqsMetCourses, id : \.self ) { course in
           Text(course.fullname)
         }
       }

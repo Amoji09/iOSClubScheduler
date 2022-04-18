@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import Combine
 //"sections": [
 //{
 //"section_id": "A",
@@ -96,7 +96,7 @@ struct Course: Decodable, Hashable, Identifiable {
   var prerequisites: Node?
 }
 
-class FBModel: ObservableObject {
+class FBModel: NSObject, ObservableObject {
   @Published var courses: [Course] = []
   @Published var groupedCourses : [String : [Course]] = [:]
   var humanitiesCourses : [Course] {
@@ -111,17 +111,19 @@ class FBModel: ObservableObject {
     courses.filter{checkNoOverlap(userCourses: userCourses, course: $0)}
   }
   
-  var prereqsMetCourses : [Course] {
+    var prereqsMetCourses : [Course] {
     var courseNodes : Set<Node> = []
     for code in prerequisiteCodes {
       courseNodes.insert(Node(type: .or, name: code, children: []))
     }
-    return courses.filter{
+    let filtered = courses.filter{
       if let prereqs = $0.prerequisites{
         return prereqs.satisfied(nodes: courseNodes)
       } else {
         return false
       }}
+        
+        return filtered
   }
   
   @Published var prerequisiteCodes : [String] = []
@@ -130,14 +132,26 @@ class FBModel: ObservableObject {
   //@published var userPrereqs
   static let shared = FBModel()
   
+    private var dataTaskCancellable: AnyCancellable?
   func loadCourses() {
-    let url = URL(string: "https://oscartracker.herokuapp.com/testCourses/1000")!
-    let data = try! Data(contentsOf: url)
-    let courses = try! JSONDecoder().decode([Course].self, from: data) 
-    self.courses = courses
-    self.groupedCourses = Dictionary(grouping:self.courses){$0.school}
-    print(groupedCourses)
-    self.courses = courses
+    let url = URL(string: "https://oscartracker.herokuapp.com/testCourses/7000")!
+      let task = URLSession.shared.dataTask(with: url) { [unowned self] data, res, error in
+          guard let data = data else { return }
+          let courses = try! JSONDecoder().decode([Course].self, from: data)
+          DispatchQueue.main.async {
+              self.courses = courses
+              self.groupedCourses = Dictionary(grouping:self.courses){$0.school}
+    //          print(groupedCourses)
+              self.courses = courses
+          }
+      }
+      
+      dataTaskCancellable = task.publisher(for: \.progress.fractionCompleted).sink { fraction in
+          print(fraction)
+      }
+      
+//      task.delegate = self
+      task.resume()
   }
   
   

@@ -62,6 +62,7 @@ struct PrerequisiteMenuView : View {
   func addPrereq(){
     prereqs.append(input.uppercased())
     prereqs.sort()
+      model.prerequisiteCodes.append(input.uppercased())
   }
   
   func deletePrereq(at offsets: IndexSet) {
