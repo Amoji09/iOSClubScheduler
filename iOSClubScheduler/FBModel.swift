@@ -104,6 +104,10 @@ struct Course: Codable, Hashable, Identifiable {
     return self._id
   }
   
+  var getNumber: String {
+    return self.number
+  }
+  
   let _id: String
   let semester: String
   let fullname: String
