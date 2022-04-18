@@ -57,7 +57,7 @@ struct Prerequisites: Decodable, Hashable {
 }
 
 
-struct Meeting: Decodable, Hashable{
+struct Meeting: Codable, Hashable{
   var days : String?
   var time : String?
   var location : String?
@@ -69,7 +69,7 @@ struct Meeting: Decodable, Hashable{
 }
 
 
-struct SectionModel: Decodable, Hashable, Identifiable {
+struct SectionModel: Codable, Hashable, Identifiable {
   
   var id: String {
     return crn
@@ -81,9 +81,13 @@ struct SectionModel: Decodable, Hashable, Identifiable {
 }
 
 
-struct Course: Decodable, Hashable, Identifiable {
+struct Course: Codable, Hashable, Identifiable {
   var id: String {
     return self._id
+  }
+  
+  var getNumber: String {
+    return self.number
   }
   
   let _id: String

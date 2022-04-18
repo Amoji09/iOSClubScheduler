@@ -17,14 +17,21 @@ struct CourseView : View{
   @State var filterHum = false
   @State var filterSoc = false
   
+  @Binding var courses: [Course]
+  let refreshAction: ()->Void
+  
   //TODO: boolean for if filter by meeting prerequisites is true
   var body: some View {
-    
     NavigationView {
       VStack{
         HStack {
           Text("All Courses")
           Spacer()
+          Button(action: {
+            refreshCourses()
+          }) {
+            Image(systemName: "goforward")
+              .padding(7).foregroundColor(Color.white).background(Color.blue).clipShape(Circle()).frame(width: 8, height: 8)
           NavigationLink(destination: FilterMenuView()) {
             Image(systemName: "magnifyingglass")
           }
@@ -48,6 +55,10 @@ struct CourseView : View{
       }
     }
     .navigationBarTitle(Text("Georgia Tech courses"))
+  }
+  
+  func refreshCourses() {
+    refreshAction()
   }
   
   
@@ -174,8 +185,8 @@ struct MeetingView : View{
   }
 }
 
-struct CourseView_Previews: PreviewProvider {
-  static var previews: some View {
-    CourseView()
-  }
-}
+/*struct CourseView_Previews: PreviewProvider {
+ static var previews: some View {
+ CourseView()
+ }
+ }*/

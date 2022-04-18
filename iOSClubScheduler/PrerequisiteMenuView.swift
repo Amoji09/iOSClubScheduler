@@ -13,7 +13,7 @@ struct PrerequisiteMenuView : View {
   @Environment(\.scenePhase) private var scenePhase
   @StateObject var model = FBModel.shared
   @State var input = ""
-  let saveAction: ()->Void
+  let saveAction: () -> Void
   
   var body: some View{
     VStack {
@@ -22,7 +22,8 @@ struct PrerequisiteMenuView : View {
           .font(.system(size: 30, weight: .semibold, design: .default))
         Spacer()
       }.padding(EdgeInsets(top: 12, leading: 12, bottom: 0, trailing: 0))
-      Divider()      
+      Divider()
+      
       HStack {
         TextField("Course Code:",text : $input)
           .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
@@ -30,9 +31,11 @@ struct PrerequisiteMenuView : View {
             .stroke(Color.gray, lineWidth: 1).frame(height: 30)
           ).padding(5)
         Button(action: {
-          if (!prereqs.contains(input.uppercased())) {
-            addPrereq()
-            self.input = ""
+          if validateCode() {
+            if (!prereqs.contains(input.uppercased())) {
+              addPrereq()
+              self.input = ""
+            }
           }
         }) {
           Image(systemName: "plus")
@@ -69,16 +72,23 @@ struct PrerequisiteMenuView : View {
     prereqs.remove(atOffsets: offsets)
   }
   
-  func validateCode() -> Bool{
-    //if groupedcourses contains school, then check for if code is in groupcourses(school).values
-    var parts = input.components(separatedBy: " ")
-    var school = String(parts[0])
-    var code = String(parts[1])
-    
-    if(school.count != 2 || school.count != 3 || school.count != 4) {
+  func validateCode() -> Bool {
+    let components = input.components(separatedBy: " ")
+    if components.count != 2 {
       return false
     }
-    return true
+    let school = String(components[0])
+    let code = String(components[1])
+    if let answer = model.groupedCourses[school]?.filter ({
+      $0.getNumber.contains(code)
+    }) {
+      if answer.count == 0 {
+        return false
+      }
+      return true
+    } else {
+      return false
+    }
   }
 }
 

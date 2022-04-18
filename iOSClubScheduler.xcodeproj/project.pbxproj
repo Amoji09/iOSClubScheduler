@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		35F29F342803BF5900A1741F /* FilterMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F29F332803BF5900A1741F /* FilterMenuView.swift */; };
 		37AD9B7428062B2A001EADD0 /* PrereqNodeParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AD9B7328062B2A001EADD0 /* PrereqNodeParse.swift */; };
+		BB2FDE7D28062ADE00E4EC8F /* CourseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2FDE7C28062ADE00E4EC8F /* CourseStore.swift */; };
 		BB35F2BD2803BA0A00A7EBAA /* PrereqStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB35F2BC2803BA0A00A7EBAA /* PrereqStore.swift */; };
 		CA5A5C9D2803886C00CA9207 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A5C9C2803886C00CA9207 /* CourseView.swift */; };
 		CA5A5C9F280388AF00CA9207 /* PrerequisiteMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A5C9E280388AF00CA9207 /* PrerequisiteMenuView.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		35F29F332803BF5900A1741F /* FilterMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuView.swift; sourceTree = "<group>"; };
 		37AD9B7328062B2A001EADD0 /* PrereqNodeParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrereqNodeParse.swift; sourceTree = "<group>"; };
+		BB2FDE7C28062ADE00E4EC8F /* CourseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseStore.swift; sourceTree = "<group>"; };
 		BB35F2BC2803BA0A00A7EBAA /* PrereqStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrereqStore.swift; sourceTree = "<group>"; };
 		CA5A5C9C2803886C00CA9207 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
 		CA5A5C9E280388AF00CA9207 /* PrerequisiteMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrerequisiteMenuView.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				CA5A5C9E280388AF00CA9207 /* PrerequisiteMenuView.swift */,
 				37AD9B7328062B2A001EADD0 /* PrereqNodeParse.swift */,
 				CA5A5C9C2803886C00CA9207 /* CourseView.swift */,
+				BB2FDE7C28062ADE00E4EC8F /* CourseStore.swift */,
 				CAE4D75127BF086C005CEE00 /* FBModel.swift */,
 				35F29F332803BF5900A1741F /* FilterMenuView.swift */,
 				BB35F2BC2803BA0A00A7EBAA /* PrereqStore.swift */,
@@ -287,6 +290,7 @@
 				CAE4D71F27BF024F005CEE00 /* ContentView.swift in Sources */,
 				BB35F2BD2803BA0A00A7EBAA /* PrereqStore.swift in Sources */,
 				37AD9B7428062B2A001EADD0 /* PrereqNodeParse.swift in Sources */,
+				BB2FDE7D28062ADE00E4EC8F /* CourseStore.swift in Sources */,
 				CAE4D75227BF086C005CEE00 /* FBModel.swift in Sources */,
 				35F29F342803BF5900A1741F /* FilterMenuView.swift in Sources */,
 				CAE4D71D27BF024F005CEE00 /* iOSClubSchedulerApp.swift in Sources */,

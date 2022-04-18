@@ -10,21 +10,48 @@ import SwiftUI
 
 
 struct ContentView: View {
+  
   init(){
     UITableView.appearance().backgroundColor = .clear
   }
   
+  @StateObject private var courseData = CourseStore()
+  @StateObject private var prereqData = PrereqStore()
+  @StateObject var model = FBModel.shared
+  
   @StateObject private var prereqData = PrereqStore()
   var body: some View{
     TabView{
-      CourseView()
-        .tabItem{
-          Label("Courses",systemImage: "list.dash")
+      CourseView(courses: $courseData.courses) {
+        CourseStore.refresh(courses: courseData.courses) { result in
+          if case .failure(let error) = result {
+            fatalError(error.localizedDescription)
+          }
         }
+      }.onAppear {
+        CourseStore.load { result in
+          switch result {
+          case .failure(let error):
+            fatalError(error.localizedDescription)
+          case .success(let courses):
+            courseData.courses = courses
+          }
+        }
+        if model.groupedCourses.isEmpty {
+          CourseStore.refresh(courses: courseData.courses) { result in
+            if case .failure(let error) = result {
+              fatalError(error.localizedDescription)
+            }
+          }
+        }
+      }
+      .tabItem{
+        Label("Courses",systemImage: "list.dash")
+      }
       PrerequisiteMenuView(prereqs: $prereqData.prereqs) {
         PrereqStore.save(prereqs: prereqData.prereqs) { result in
           if case .failure(let error) = result {
-            fatalError(error	.localizedDescription)
+            fatalError(error.localizedDescription)
           }
         }
       }.onAppear {
