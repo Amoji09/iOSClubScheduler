@@ -41,8 +41,11 @@ struct CourseView : View{
               }
             }
           }
+        }.listStyle(.grouped)
+        List(Array(model.prereqsMetCourses), id : \.self ) { course in
+          Text(course.fullname)
         }
-      }.listStyle(.grouped)
+      }
     }
     .navigationBarTitle(Text("Georgia Tech courses"))
   }

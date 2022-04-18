@@ -69,6 +69,7 @@ struct PrerequisiteMenuView : View {
   }
   
   func validateCode() -> Bool{
+    //if groupedcourses contains school, then check for if code is in groupcourses(school).values
     var parts = input.components(separatedBy: " ")
     var school = String(parts[0])
     var code = String(parts[1])

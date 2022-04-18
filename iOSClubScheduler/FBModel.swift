@@ -111,6 +111,19 @@ class FBModel: ObservableObject {
     courses.filter{checkNoOverlap(userCourses: userCourses, course: $0)}
   }
   
+  var prereqsMetCourses : [Course] {
+    var courseNodes : Set<Node> = []
+    for code in prerequisiteCodes {
+      courseNodes.insert(Node(type: .or, name: code, children: []))
+    }
+    return courses.filter{
+      if let prereqs = $0.prerequisites{
+        return prereqs.satisfied(nodes: courseNodes)
+      } else {
+        return false
+      }}
+  }
+  
   @Published var prerequisiteCodes : [String] = []
   @Published var userCourses : [UserCourse] = []
   @Published var times : [MeetingTime] = []
@@ -118,7 +131,7 @@ class FBModel: ObservableObject {
   static let shared = FBModel()
   
   func loadCourses() {
-    let url = URL(string: "https://oscartracker.herokuapp.com/testCourses/100/")!
+    let url = URL(string: "https://oscartracker.herokuapp.com/testCourses/1000")!
     let data = try! Data(contentsOf: url)
     let courses = try! JSONDecoder().decode([Course].self, from: data) 
     self.courses = courses
