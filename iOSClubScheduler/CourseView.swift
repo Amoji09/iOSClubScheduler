@@ -76,114 +76,113 @@ struct CourseView : View{
     else{
       coursesOut = model.courses
     }
-    return coursesOut
-  }
 }
 
+
 struct CourseDetailView: View {
-  let course: Course
-  
-  var body: some View {
-    VStack{
-      Text(course.fullname)
-      Spacer()
-      HStack{
-        Text("Attributes:")
-        if let attribute = course.course_attributes{
-          let str = String(attribute)
-          let replaced = str.replacingOccurrences(of: "&amp;", with: "&")
-          Text(replaced)
-        } else {
-          Text("None")
-        }
-      }
-      
-      List(course.sections ?? []) { section in
+    let course: Course
+    
+    var body: some View {
         VStack{
-          
-          SectionView(section: section)
-          Spacer()
+            Text(course.fullname)
+            Spacer()
+            HStack{
+                Text("Attributes:")
+                if let attribute = course.course_attributes{
+                    let str = String(attribute)
+                    let replaced = str.replacingOccurrences(of: "&amp;", with: "&")
+                    Text(replaced)
+                } else {
+                    Text("None")
+                }
+            }
+            
+            List(course.sections ?? []) { section in
+                VStack{
+                    
+                    SectionView(section: section)
+                    Spacer()
+                }
+            }
         }
-      }
     }
-  }
 }
 
 struct SectionView : View{
-  let section : SectionModel
-  var body : some View{
-    VStack{
-      if let meetings = section.meetings{
-        ForEach(meetings, id : \.self){ meeting in
-          MeetingView(meeting: meeting)
+    let section : SectionModel
+    var body : some View{
+        VStack{
+            if let meetings = section.meetings{
+                ForEach(meetings, id : \.self){ meeting in
+                    MeetingView(meeting: meeting)
+                }
+            }
+            Spacer()
+            HStack{
+                Spacer()
+                Text("CRN: " + section.crn)
+                Spacer()
+            }
         }
-      }
-      Spacer()
-      HStack{
-        Spacer()
-        Text("CRN: " + section.crn)
-        Spacer()
-      }
     }
-  }
 }
 
 struct MeetingView : View{
-  let meeting : Meeting
-  var body : some View {
-    
-    VStack{
-      Spacer()
-      HStack{
-        Text("Days: ")
-        Spacer()
-        if let days = meeting.days{
-          Text(days)
-        } else {
-          Text("Not found")
-        }
-      }
-      HStack{
-        Text("Time: ")
-        Spacer()
-        if let time = meeting.time{
-          Text(time)
-        } else {
-          Text("Not found")
-        }
-      }
-      Spacer()
-      
-      HStack{
-        Text("Location")
-        Spacer()
-        if let location = meeting.location{
-          Text(location).fixedSize(horizontal: false, vertical: true)
-        } else {
-          Text("Not found")
-        }
-      }
-      
-      HStack{
-        Text("Taught by:")
-        Spacer()
-        if (meeting.instructors == nil) {
-          Text("Not found")
-        } else {
-          List(meeting.instructors ?? [], id: \.self){ instructor in
-            Text(instructor)
-          }
-        }
+    let meeting : Meeting
+    var body : some View {
         
-      }
-      
-      
+        VStack{
+            Spacer()
+            HStack{
+                Text("Days: ")
+                Spacer()
+                if let days = meeting.days{
+                    Text(days)
+                } else {
+                    Text("Not found")
+                }
+            }
+            HStack{
+                Text("Time: ")
+                Spacer()
+                if let time = meeting.time{
+                    Text(time)
+                } else {
+                    Text("Not found")
+                }
+            }
+            Spacer()
+            
+            HStack{
+                Text("Location: ")
+                Spacer()
+                if let location = meeting.location{
+                    Text(location).fixedSize(horizontal: false, vertical: true)
+                } else {
+                    Text("Not found")
+                }
+            }
+            
+            HStack{
+                Text("Taught by: ")
+                Spacer()
+                if (meeting.instructors == nil) {
+                    Text("Not found")
+                } else {
+                    List(meeting.instructors ?? [], id: \.self){ instructor in
+                        Text(instructor)
+                    }
+                }
+                
+            }
+            
+            
+        }
     }
-  }
 }
 
-/*struct CourseView_Previews: PreviewProvider {
- static var previews: some View {
- CourseView()
- }
- }*/
+struct CourseView_Previews: PreviewProvider {
+    static var previews: some View {
+        CourseView()
+    }
+}

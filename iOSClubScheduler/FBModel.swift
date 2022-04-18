@@ -110,8 +110,7 @@ class FBModel: NSObject, ObservableObject {
     courses.filter{$0.course_attributes != nil && $0.course_attributes == "Social Science Requirement"}
   }
   
-  var noConflictCourses : [Course]
-  {
+  var noConflictCourses : [Course] {
     courses.filter{checkNoOverlap(userCourses: userCourses, course: $0)}
   }
   

@@ -11,6 +11,7 @@
 		37AD9B7428062B2A001EADD0 /* PrereqNodeParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AD9B7328062B2A001EADD0 /* PrereqNodeParse.swift */; };
 		BB2FDE7D28062ADE00E4EC8F /* CourseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2FDE7C28062ADE00E4EC8F /* CourseStore.swift */; };
 		BB35F2BD2803BA0A00A7EBAA /* PrereqStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB35F2BC2803BA0A00A7EBAA /* PrereqStore.swift */; };
+		35F29F362803C8F100A1741F /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F29F352803C8F100A1741F /* ResultsView.swift */; };
 		CA5A5C9D2803886C00CA9207 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A5C9C2803886C00CA9207 /* CourseView.swift */; };
 		CA5A5C9F280388AF00CA9207 /* PrerequisiteMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A5C9E280388AF00CA9207 /* PrerequisiteMenuView.swift */; };
 		CAA9195427C82C64005143FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAA9195327C82C64005143FC /* GoogleService-Info.plist */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		35F29F332803BF5900A1741F /* FilterMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuView.swift; sourceTree = "<group>"; };
+		35F29F352803C8F100A1741F /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		37AD9B7328062B2A001EADD0 /* PrereqNodeParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrereqNodeParse.swift; sourceTree = "<group>"; };
 		BB2FDE7C28062ADE00E4EC8F /* CourseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseStore.swift; sourceTree = "<group>"; };
 		BB35F2BC2803BA0A00A7EBAA /* PrereqStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrereqStore.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				BB2FDE7C28062ADE00E4EC8F /* CourseStore.swift */,
 				CAE4D75127BF086C005CEE00 /* FBModel.swift */,
 				35F29F332803BF5900A1741F /* FilterMenuView.swift */,
+				35F29F352803C8F100A1741F /* ResultsView.swift */,
 				BB35F2BC2803BA0A00A7EBAA /* PrereqStore.swift */,
 				CAE4D72027BF0250005CEE00 /* Assets.xcassets */,
 				CAE4D72227BF0250005CEE00 /* Preview Content */,
@@ -293,6 +296,7 @@
 				BB2FDE7D28062ADE00E4EC8F /* CourseStore.swift in Sources */,
 				CAE4D75227BF086C005CEE00 /* FBModel.swift in Sources */,
 				35F29F342803BF5900A1741F /* FilterMenuView.swift in Sources */,
+				35F29F362803C8F100A1741F /* ResultsView.swift in Sources */,
 				CAE4D71D27BF024F005CEE00 /* iOSClubSchedulerApp.swift in Sources */,
 				CA5A5C9D2803886C00CA9207 /* CourseView.swift in Sources */,
 			);
@@ -455,7 +459,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iOSClubScheduler/Preview Content\"";
-				DEVELOPMENT_TEAM = WGVRJ4U92U;
+				DEVELOPMENT_TEAM = PMYVLB6TXB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -484,7 +488,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iOSClubScheduler/Preview Content\"";
-				DEVELOPMENT_TEAM = WGVRJ4U92U;
+				DEVELOPMENT_TEAM = PMYVLB6TXB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
