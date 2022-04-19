@@ -16,56 +16,58 @@ struct PrerequisiteMenuView : View {
   let saveAction: () -> Void
   
   var body: some View{
-    VStack {
-      HStack {
-        Text("Prerequisites")
-          .font(.system(size: 30, weight: .semibold, design: .default))
-        Spacer()
-      }.padding(EdgeInsets(top: 12, leading: 12, bottom: 0, trailing: 0))
-      Divider()
-      
-      HStack {
-        TextField("Course Code:",text : $input)
-          .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
-          .overlay( RoundedRectangle(cornerRadius: 10)
-            .stroke(Color.gray, lineWidth: 1).frame(height: 30)
-          ).padding(5)
-        Button(action: {
-          if validateCode() {
-            if (!prereqs.contains(input.uppercased())) {
-              addPrereq()
-              self.input = ""
+    NavigationView{
+      VStack {
+        HStack {
+          Text("Taken Courses")
+            .font(.system(size: 30, weight: .semibold, design: .default))
+          Spacer()
+        }.padding(EdgeInsets(top: 12, leading: 12, bottom: 0, trailing: 0))
+        Divider()
+        
+        HStack {
+          TextField("Course Code:",text : $input)
+            .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
+            .overlay( RoundedRectangle(cornerRadius: 10)
+              .stroke(Color.gray, lineWidth: 1).frame(height: 30)
+            ).padding(5)
+          Button(action: {
+            if validateCode() {
+              if (!prereqs.contains(input.uppercased())) {
+                addPrereq()
+                self.input = ""
+              }
             }
+          }) {
+            Image(systemName: "plus")
+              .padding(7).foregroundColor(Color.white).background(Color.blue).clipShape(Circle()).frame(width: 12, height: 12)
           }
-        }) {
-          Image(systemName: "plus")
-            .padding(7).foregroundColor(Color.white).background(Color.blue).clipShape(Circle()).frame(width: 12, height: 12)
+        }.padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 20))
+        List {
+          ForEach(prereqs, id: \.self) { prereq in
+            Text(prereq)
+          }
+          .onDelete(perform: deletePrereq)
         }
-      }.padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 20))
-      List {
-        ForEach(prereqs, id: \.self) { prereq in
-          Text(prereq)
-        }
-        .onDelete(perform: deletePrereq)
+        .frame(maxWidth: .infinity)
+        .edgesIgnoringSafeArea(.all)
+        .listStyle(PlainListStyle())
       }
-      .frame(maxWidth: .infinity)
-      .edgesIgnoringSafeArea(.all)
-      .listStyle(PlainListStyle())
-    }
-    .onChange(of: scenePhase) { phase in
-      if phase == .inactive {
+      .onChange(of: scenePhase) { phase in
+        if phase == .inactive {
+          saveAction()
+        }
+      }
+      .onDisappear {
         saveAction()
       }
-    }
-    .onDisappear {
-      saveAction()
     }
   }
   
   func addPrereq(){
     prereqs.append(input.uppercased())
     prereqs.sort()
-      model.prerequisiteCodes.append(input.uppercased())
+    model.prerequisiteCodes.append(input.uppercased())
   }
   
   func deletePrereq(at offsets: IndexSet) {
@@ -91,9 +93,3 @@ struct PrerequisiteMenuView : View {
     }
   }
 }
-
-/*struct PrerequisiteMenuView_Previews: PreviewProvider {
- static var previews: some View {
- PrerequisiteMenuView()
- }
- }*/

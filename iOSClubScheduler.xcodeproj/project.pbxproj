@@ -118,11 +118,11 @@
 		CA33E91A280E0A19005EB186 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CAE4D71E27BF024F005CEE00 /* ContentView.swift */,
 				CA5A5C9E280388AF00CA9207 /* PrerequisiteMenuView.swift */,
 				35F29F332803BF5900A1741F /* FilterMenuView.swift */,
 				35F29F352803C8F100A1741F /* ResultsView.swift */,
 				CA5A5C9C2803886C00CA9207 /* CourseView.swift */,
-				CAE4D71E27BF024F005CEE00 /* ContentView.swift */,
 				CA33E91B280E0A55005EB186 /* CRNView.swift */,
 			);
 			path = Views;

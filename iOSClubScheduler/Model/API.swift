@@ -40,6 +40,7 @@ class APIModel: NSObject, ObservableObject {
   
   @Published var prerequisiteCodes : [String] = []
   @Published var userCourses : [UserCourse] = []
+  @Published var progress : Double = 0.0
   //@published var userPrereqs
   static let shared = APIModel()
   
@@ -58,7 +59,7 @@ class APIModel: NSObject, ObservableObject {
     }
     
     dataTaskCancellable = task.publisher(for: \.progress.fractionCompleted).sink { fraction in
-      print(fraction)
+      self.progress = fraction
     }
     
     //      task.delegate = self

@@ -12,9 +12,10 @@ struct CRNView : View{
   @StateObject var model = APIModel.shared
   @State var input = ""
   var body: some View{
+    NavigationView{
     VStack{
       HStack {
-        Text("Check Time")
+        Text("Planned Courses")
           .font(.system(size: 30, weight: .semibold, design: .default))
         Spacer()
       }.padding(EdgeInsets(top: 12, leading: 12, bottom: 0, trailing: 0))
@@ -41,6 +42,7 @@ struct CRNView : View{
       .frame(maxWidth: .infinity)
       .edgesIgnoringSafeArea(.all)
       .listStyle(PlainListStyle())
+    }
     }
   }
   

@@ -27,6 +27,6 @@ struct ResultsView : View {
                 }
             }.listStyle(.grouped)
         }
-        .navigationBarTitle(Text("Filtered Courses"))
+        .navigationBarTitle(Text("Results"))
     }
 }

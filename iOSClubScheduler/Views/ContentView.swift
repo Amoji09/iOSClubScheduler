@@ -64,11 +64,11 @@ struct ContentView: View {
         }
       }
       .tabItem{
-        Label("Prereqs", systemImage: "textformat")
+        Label("Taken", systemImage: "textformat")
       }
       CRNView()
         .tabItem{
-          Label("Times", systemImage: "clock")
+          Label("Planned", systemImage: "clock")
         }
     }
   }

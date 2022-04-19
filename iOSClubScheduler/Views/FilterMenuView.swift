@@ -20,9 +20,6 @@ struct FilterMenuView : View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Filter Courses").font(.system(size: 40)).padding(.leading, 20)
-            
-            // attribute selector
             HStack{
                 Text("Select Attribute:")
                 Picker("Selected Attributes", selection: $selectedAttribute) {
@@ -34,26 +31,28 @@ struct FilterMenuView : View {
             HStack{
                 Text("Select School:")
                 Picker("Selected School", selection: $selectedSchool) {
-                    ForEach(schoolsList, id: \.self) {
+                  ForEach(schoolsList, id: \.self) {
                         Text($0)
                     }
                 }
             }.padding([.leading, .trailing], 20).onAppear(perform: {
                 schoolsList = Array(model.groupedCourses.keys)
-                schoolsList.append("All")
+                schoolsList = schoolsList.sorted()
+                schoolsList.insert("All", at: 0)
             })
           
             // satisfies prereqes toggle
-            Toggle("Satisfied Prereqs", isOn: $satisfiesPrereqs).padding([.top, .leading, .trailing], 20)
+            Toggle("Satisfied Prerequisites", isOn: $satisfiesPrereqs).padding([.top, .leading, .trailing], 20)
             
             // fits with schedule toggle
-            Toggle("Fit Schedule", isOn: $fitsSchedule).padding([.leading, .trailing], 20)
+            Toggle("Fits Current Schedule", isOn: $fitsSchedule).padding([.leading, .trailing], 20)
             
             // search button
             NavigationLink(destination: ResultsView(groupedCourses: filterCourses(attribute: selectedAttribute, school: selectedSchool, satisfiesPrereqs: satisfiesPrereqs, fitsSchedule: fitsSchedule))) {
                 Text("Search")
             }.padding(20)
         }.padding(20)
+        .navigationBarTitle(Text("Search Courses"))
     }
     
     func filterCourses(attribute: String, school: String, satisfiesPrereqs: Bool, fitsSchedule: Bool) -> [String : [Course]] {
