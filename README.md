@@ -8,9 +8,11 @@ and work with their schedule.
 Clone repository and open in XCode using main branch. Run using simulator or on device.
 
 # Team Members:
-Ananya Kumar, Eric Zhou, Nicolas Rios, Shivank Mishra, Steve Shi, Shreya Malpani
+
+Ananya Kumar, Eric Zhou, Nicolas Rios, Keny Nguyen, Shivank Mishra, Steve Shi, Shreya Malpani.
 
 # Tech Leads:
+
 Amogh Mantri and Maksim Tochilikin
 
 *Developed as part of GT iOS Development Club*
